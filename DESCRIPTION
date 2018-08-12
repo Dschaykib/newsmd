@@ -1,0 +1,18 @@
+Package: newsmd
+Title: creation of NEWS.md file
+Version: 0.0.0.9001
+Authors@R: person('Jakob', 'Gepp', email = 'jakob.gepp@yahoo.de', role = c('cre', 'aut'))
+Description: Adding updates (version or bulletpoints) to the NEWS.md file.
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/Dschaykib/newsmd
+BugReports: https://github.com/Dschaykib/newsmd/issues
+Encoding: UTF-8
+Depends: 
+    R (>= 3.3.3)
+Suggests: 
+    testthat
+Imports: 
+    R6
+Date: 2018-08-12
+RoxygenNote: 6.0.1
