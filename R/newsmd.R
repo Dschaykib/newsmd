@@ -81,12 +81,14 @@ news <- R6Class("news",
         private$version <- version
         
       }
+      private$ver_indx = 8
       private$sub_indx = 4
-      private$bul_indx = 7
+      private$bul_indx = length(text)
+      
       },
     print = function(...) {
       cat("NEWS.md: \n \n")
-      cat(private$text, sep = "\n")
+      cat(private$text[1:private$ver_indx], sep = "\n")
     },
     get_text = function() {
       return(private$text)
@@ -99,6 +101,7 @@ news <- R6Class("news",
                        private$text)
       private$sub_indx = 4
       private$bul_indx = 4
+      private$ver_indx = 5
     },
     add_subtitle = function(x) {
       private$text <- c(
@@ -106,19 +109,22 @@ news <- R6Class("news",
         "", paste("###", x), "", "",
         private$text[(private$sub_indx + 1):length(private$text)])
       private$bul_indx = private$sub_indx + 3
+      private$ver_indx = private$ver_indx + 4
     },
     add_bullet = function(x) {
       private$text <- c(
         private$text[1:private$bul_indx],
         paste("-", x),
         private$text[(private$bul_indx + 1):length(private$text)])
+      private$ver_indx = private$ver_indx + length(x)
       #private$bul_indx = private$bul_indx + 1
     }),
   private = list(
     text = "",
     version = NA,
     sub_indx = NA,
-    bul_indx = NA
+    bul_indx = NA,
+    ver_indx = NA
   )
 )
 
