@@ -112,6 +112,6 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet("added automated creation for DESCRIPTION and NEWS.md")
 ```
 
-The full example script I used for my other package, can be found [here](https://github.com/STATWORX/helfRlein/blob/master/misc/update_DESCRIPTION_NEWS.R).
+The full example script I used for this package's NEWS file, can be found [here](https://github.com/Dschaykib/newsmd/blob/master/misc/update_DESCRIPTION_NEWS.R).
 
 
