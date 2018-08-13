@@ -1,4 +1,4 @@
-# newsmd
+# newsmd <img src="misc/news.png" width=170 align="right" />
 [![CircleCI](https://circleci.com/gh/Dschaykib/newsmd.svg?style=svg)](https://circleci.com/gh/Dschaykib/newsmd)
 
 A package to create and update the `NEWS.md` file.
