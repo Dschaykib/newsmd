@@ -3,6 +3,15 @@
 
 A package to create and update the `NEWS.md` file.
 
+## Installation
+
+``` R
+# install.packages("devtools")
+devtools::install_github("Dschaykib/newsmd")
+library(newsmd)
+```
+
+
 ## Usage of `newsmd`
 
 The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods.

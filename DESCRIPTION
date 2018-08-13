@@ -1,6 +1,6 @@
 Package: newsmd
 Title: creation of NEWS.md file
-Version: 0.0.0.9001
+Version: 0.1.0
 Authors@R: person('Jakob', 'Gepp', email = 'jakob.gepp@yahoo.de', role = c('cre', 'aut'))
 Description: Adding updates (version or bulletpoints) to the NEWS.md file.
 License: MIT + file LICENSE
@@ -14,5 +14,4 @@ Suggests:
     testthat
 Imports: 
     R6
-Date: 2018-08-12
-RoxygenNote: 6.0.1
+Date: 2018-08-13

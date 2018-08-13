@@ -46,10 +46,11 @@ my_desc$set_dep("R6", type = desc::dep_types[1])
 
 # initial functions -------------------------------------------------------
 
-my_desc$bump_version("dev")
+my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
 
-my_news$add_bullet(c("adding newsmd for easier creation"))
+my_news$add_bullet(c("adding newsmd for easier creation",
+                     "adding circleci"))
 
 
 
