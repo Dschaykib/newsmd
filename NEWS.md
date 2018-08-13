@@ -2,6 +2,11 @@
 
 ---
 
+
+### Bugfix
+
+- print method only shows last verion (fix [issue #2](/issues/2))
+
 - adding newsmd for easier creation
 - adding circleci
 

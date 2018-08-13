@@ -51,6 +51,8 @@ my_news$add_version(my_desc$get_version())
 
 my_news$add_bullet(c("adding newsmd for easier creation",
                      "adding circleci"))
+my_news$add_subtitle("Bugfix")
+my_news$add_bullet(c("print method only shows last verion (fix [issue #2](/issues/2))"))
 
 
 
