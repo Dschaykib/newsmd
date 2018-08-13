@@ -5,7 +5,7 @@
 
 ### Bugfix
 
-- print method only shows last verion (fix [issue #2](../issues/2))
+- print method only shows last verion (fix [issue #2](https://github.com/Dschaykib/newsmd/issues/2))
 
 - adding newsmd for easier creation
 - adding circleci
