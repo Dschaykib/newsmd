@@ -1,0 +1,33 @@
+language: R
+sudo: false
+cache: packages
+warnings_are_errors: true
+
+os:
+  - linux
+  - osx
+
+r:
+  - oldrel
+  - release
+  - devel
+
+
+# do not build vignettes...takes too long and times out on travis
+r_build_args: --no-build-vignettes --no-manual
+r_check_args: --no-build-vignettes --no-manual --timings
+
+r_packages:
+  - devtools
+  - covr
+
+r_github_packages:
+  - Dschaykib/newsmd
+  
+after_success:
+  - Rscript -e 'covr::codecov()'
+  
+notifications:
+  email:
+    on_success: change
+    on_failure: change

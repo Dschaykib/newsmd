@@ -8,10 +8,11 @@ LazyData: true
 URL: https://github.com/Dschaykib/newsmd
 BugReports: https://github.com/Dschaykib/newsmd/issues
 Encoding: UTF-8
-Depends: 
+Depends:
     R (>= 3.3.3)
-Suggests: 
-    testthat
-Imports: 
+Suggests:
+    testthat,
+    covr
+Imports:
     R6
 Date: 2018-08-13

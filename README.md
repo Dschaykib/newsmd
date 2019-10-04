@@ -1,5 +1,8 @@
 # newsmd <img src="misc/news.png" width=170 align="right" />
 [![CircleCI](https://circleci.com/gh/Dschaykib/newsmd.svg?style=svg)](https://circleci.com/gh/Dschaykib/newsmd)
+[![Travis-CI Build Status](https://travis-ci.org/Dschaykib/newsmd.svg?branch=master)](https://travis-ci.org/Dschaykib/newsmd)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Dschaykib/newsmd?branch=master&svg=true)](https://ci.appveyor.com/project/Dschaykib/newsmd)
+[![Coverage Status](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/master.svg)](https://codecov.io/github/Dschaykib/newsmd?branch=master)
 
 A package to create and update the `NEWS.md` file.
 
