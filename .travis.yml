@@ -23,10 +23,13 @@ r_packages:
 
 r_github_packages:
   - Dschaykib/newsmd
-  
+  - jimhester/lintr
+
 after_success:
   - Rscript -e 'covr::codecov()'
-  
+  - R CMD INSTALL $PKG_TARBALL
+  - Rscript -e 'lintr::lint_package()'
+
 notifications:
   email:
     on_success: change
