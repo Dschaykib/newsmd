@@ -41,14 +41,15 @@ jobs:
     - stage: coverage and style (only comments)
       os: linux
       r: release
-      script: Rscript -e 'covr::codecov()'
-      script: R CMD INSTALL $PKG_TARBALL
-      script: Rscript -e 'lintr::lint_package()'
+      script:
+       - Rscript -e 'covr::codecov()'
+       - R CMD INSTALL $PKG_TARBALL
+       - Rscript -e 'lintr::lint_package()'
 
     - stage: coverage and style (as error)
-      script: Rscript -e 'covr::codecov()'
-      script: R CMD INSTALL $PKG_TARBALL
-      script: Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
+       - Rscript -e 'covr::codecov()'
+       - R CMD INSTALL $PKG_TARBALL
+       - Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
 
 
 
