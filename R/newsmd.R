@@ -81,7 +81,7 @@ news <- R6Class("news",
         private$version <- version
 
       }
-      private$ver_indx = 8
+      private$ver_indx <- 8
       private$sub_indx <- 4
       private$bul_indx <- length(text)
 
