@@ -52,8 +52,8 @@ news <- R6Class("news",
   public = list(
     initialize = function(text = c(paste0("## version ", version),
                                    "", "---", "",
-                                   "### setup", "",
-                                   "- added NEWS.md creation", ""),
+                                   "### NEWS.md setup", "",
+                                   "- added NEWS.md creation with newsmd", ""),
                           version = "0.0.0.9000",
                           file = NULL) {
 
