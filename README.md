@@ -87,9 +87,9 @@ my_news$get_text()
 [13] ""                        
 [14] "---"                     
 [15] ""                        
-[16] "### setup"               
+[16] "### NEWS.md setup"       
 [17] ""                        
-[18] "- added NEWS.md creation"
+[18] "- added NEWS.md creation with newsmd"
 [19] "" 
 ```
 
