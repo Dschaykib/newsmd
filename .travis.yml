@@ -3,6 +3,8 @@ sudo: false
 cache: packages
 warnings_are_errors: true
 
+
+# unit test on different versions
 os:
   - linux
   - osx
@@ -10,12 +12,8 @@ os:
 r:
   - oldrel
   - release
-  - devel
 
-
-# do not build vignettes...takes too long and times out on travis
-r_build_args: --no-build-vignettes --no-manual
-r_check_args: --no-build-vignettes --no-manual --timings
+#  - devel
 
 r_packages:
   - devtools
@@ -25,10 +23,21 @@ r_github_packages:
   - Dschaykib/newsmd
   - jimhester/lintr
 
-after_success:
-  - Rscript -e 'covr::codecov()'
-  - R CMD INSTALL $PKG_TARBALL
-  - Rscript -e 'lintr::lint_package()'
+# do not build vignettes...takes too long and times out on travis
+r_build_args: --no-build-vignettes --no-manual
+r_check_args: --no-build-vignettes --no-manual --timings
+
+
+# create code covarage
+jobs:
+  include:
+    - stage: covarage
+      os: linux
+      r: release
+      script: Rscript -e 'covr::codecov()'
+      script: R CMD INSTALL $PKG_TARBALL
+      script: Rscript -e 'lintr::lint_package()'
+
 
 notifications:
   email:
