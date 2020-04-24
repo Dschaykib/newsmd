@@ -44,8 +44,7 @@ jobs:
       r: release
       script: Rscript -e 'covr::codecov()'
       script: R CMD INSTALL $PKG_TARBALL
-      #script: Rscript -e 'lintr::lint_package()'
-      script: Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
+      script: Rscript -e 'lintr::lint_package()'
 
     - stage: deploy
       script: R CMD INSTALL $PKG_TARBALL
