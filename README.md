@@ -34,9 +34,9 @@ The default text contains markdown code and looks like this:
 
 ---
 
-### setup
+### NEWS.md setup
 
-- added NEWS.md creation
+- added NEWS.md creation with newsmd
 ```
 
 ### Adding a the next version
