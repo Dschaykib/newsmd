@@ -19,7 +19,7 @@
 #' @examples
 #' newsmd()
 
-newsmd = function(file = NULL,
+newsmd <- function(file = NULL,
                    text = c(paste0("## version ", version),
                             "", "---", "",
                             "### NEWS.md setup", "",
@@ -82,8 +82,8 @@ news <- R6Class("news",
 
       }
       private$ver_indx = 8
-      private$sub_indx = 4
-      private$bul_indx = length(text)
+      private$sub_indx <- 4
+      private$bul_indx <- length(text)
 
       },
     print = function(...) {
@@ -99,25 +99,24 @@ news <- R6Class("news",
     add_version = function(x) {
       private$text <- c(paste("## version", x), "", "---", "", "",
                        private$text)
-      private$sub_indx = 4
-      private$bul_indx = 4
-      private$ver_indx = 5
+      private$sub_indx <- 4
+      private$bul_indx <- 4
+      private$ver_indx <- 5
     },
     add_subtitle = function(x) {
       private$text <- c(
         private$text[1:private$sub_indx],
         "", paste("###", x), "", "",
         private$text[(private$sub_indx + 1):length(private$text)])
-      private$bul_indx = private$sub_indx + 3
-      private$ver_indx = private$ver_indx + 4
+      private$bul_indx <- private$sub_indx + 3
+      private$ver_indx <- private$ver_indx + 4
     },
     add_bullet = function(x) {
       private$text <- c(
         private$text[1:private$bul_indx],
         paste("-", x),
         private$text[(private$bul_indx + 1):length(private$text)])
-      private$ver_indx = private$ver_indx + length(x)
-      #private$bul_indx = private$bul_indx + 1
+      private$ver_indx <- private$ver_indx + length(x)
     }),
   private = list(
     text = "",
@@ -127,7 +126,3 @@ news <- R6Class("news",
     ver_indx = NA
   )
 )
-
-
-
-

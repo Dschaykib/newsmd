@@ -5,13 +5,7 @@ warnings_are_errors: true
 
 
 # unit test on different versions
-os:
-  - linux
-  - osx
 
-r:
-  - oldrel
-  - release
 
 #  - devel
 
@@ -23,20 +17,40 @@ r_github_packages:
   - Dschaykib/newsmd
   - jimhester/lintr
 
-# do not build vignettes...takes too long and times out on travis
-r_build_args: --no-build-vignettes --no-manual
-r_check_args: --no-build-vignettes --no-manual --timings
+
+stages:
+  - name: unit testing
+  - name: coverage and style
+  - name: deploy
+    if: branch = master
 
 
 # create code covarage
 jobs:
   include:
-    - stage: covarage and style
+    - stage: unit testing
+      os:
+      - linux
+      - osx
+      r:
+      #- oldrel
+      - release
+    # do not build vignettes...takes too long and times out on travis
+      r_build_args: --no-build-vignettes --no-manual
+      r_check_args: --no-build-vignettes --no-manual --timings
+
+    - stage: coverage and style
       os: linux
       r: release
       script: Rscript -e 'covr::codecov()'
       script: R CMD INSTALL $PKG_TARBALL
-      script: Rscript -e 'lintr::lint_package()'
+      #script: Rscript -e 'lintr::lint_package()'
+      script: Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
+
+    - stage: deploy
+      script: R CMD INSTALL $PKG_TARBALL
+      script: Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
+
 
 
 notifications:
