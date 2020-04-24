@@ -47,6 +47,8 @@ jobs:
        - Rscript -e 'lintr::lint_package()'
 
     - stage: coverage and style (as error)
+      os: linux
+      r: release
       script:
        - Rscript -e 'covr::codecov()'
        - R CMD INSTALL $PKG_TARBALL
