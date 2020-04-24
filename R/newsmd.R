@@ -1,9 +1,9 @@
 #' @title Creating a NEWS.md file
-#' 
+#'
 #' @description
 #'  This is a convenience wrapper for \code{news$new()}. If you already have a
 #'  \code{NEWS} file you can add it's path to \code{newsmd()}.
-#'  
+#'
 #' @details
 #'  This functions creates a \code{news} object, which can be saved as the
 #'  NEWS.md file with the internal method \code{write()}. One can add versions,
@@ -22,19 +22,19 @@
 newsmd <- function(file = NULL,
                    text = c(paste0("## version ", version),
                             "", "---", "",
-                            "### setup", "",
-                            "- added NEWS.md creation", ""),
+                            "### NEWS.md setup", "",
+                            "- added NEWS.md creation with newsmd", ""),
                    version = "0.0.0.9000") {
   news$new(file = file, text = text, version = version)
 }
 
 #' @title Manipulate the NEWS.md file
-#' 
-#' @description 
+#'
+#' @description
 #'  Manipulate the NEWS.md file.
-#'  
+#'
 #' @seealso \link{newsmd}
-#' 
+#'
 #' @export
 #' @importFrom R6 R6Class
 #' @docType class
@@ -46,24 +46,24 @@ newsmd <- function(file = NULL,
 #' my_news$add_subtitle("improved things 1")
 #' my_news$add_bullet("point 1")
 #' my_news$add_bullet("point 2")
-#' 
+#'
 
 news <- R6Class("news",
-  public = list(
+  public <- list(
     initialize = function(text = c(paste0("## version ", version),
                                    "", "---", "",
-                                   "### setup", "",
-                                   "- added NEWS.md creation", ""),
+                                   "### NEWS.md setup", "",
+                                   "- added NEWS.md creation with newsmd", ""),
                           version = "0.0.0.9000",
                           file = NULL) {
-      
+
       if (is.null(file)) {
         private$text <- text
         private$version <- version
-        
+
       } else {
         # check if file exists
-        if (!file.exists(file)){
+        if (!file.exists(file)) {
           stop("given file does not exists")
         }
         # check if veriosn is given
@@ -79,12 +79,12 @@ news <- R6Class("news",
         prev_text <- readLines(file)
         private$text <- c(text, prev_text)
         private$version <- version
-        
+
       }
       private$ver_indx = 8
-      private$sub_indx = 4
-      private$bul_indx = length(text)
-      
+      private$sub_indx <- 4
+      private$bul_indx <- length(text)
+
       },
     print = function(...) {
       cat("NEWS.md: \n \n")
@@ -99,25 +99,24 @@ news <- R6Class("news",
     add_version = function(x) {
       private$text <- c(paste("## version", x), "", "---", "", "",
                        private$text)
-      private$sub_indx = 4
-      private$bul_indx = 4
-      private$ver_indx = 5
+      private$sub_indx <- 4
+      private$bul_indx <- 4
+      private$ver_indx <- 5
     },
     add_subtitle = function(x) {
       private$text <- c(
         private$text[1:private$sub_indx],
         "", paste("###", x), "", "",
         private$text[(private$sub_indx + 1):length(private$text)])
-      private$bul_indx = private$sub_indx + 3
-      private$ver_indx = private$ver_indx + 4
+      private$bul_indx <- private$sub_indx + 3
+      private$ver_indx <- private$ver_indx + 4
     },
     add_bullet = function(x) {
       private$text <- c(
         private$text[1:private$bul_indx],
         paste("-", x),
         private$text[(private$bul_indx + 1):length(private$text)])
-      private$ver_indx = private$ver_indx + length(x)
-      #private$bul_indx = private$bul_indx + 1
+      private$ver_indx <- private$ver_indx + length(x)
     }),
   private = list(
     text = "",
@@ -127,7 +126,3 @@ news <- R6Class("news",
     ver_indx = NA
   )
 )
-
-
-
-

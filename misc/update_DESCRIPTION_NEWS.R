@@ -57,6 +57,18 @@ my_news$add_bullet(
          "(fix [issue #2](https://github.com/Dschaykib/newsmd/issues/2))"))
 
 
+# changing travis setup and adding lintr ----------------------------------
+my_desc$bump_version("minor")
+my_news$add_version(my_desc$get_version())
+
+my_news$add_bullet(c("changing travis setup",
+                     "adding lintr"))
+my_news$add_subtitle("Style")
+my_news$add_bullet(
+  paste0("changing inital message"))
+
+
+
 
 # save everything ---------------------------------------------------------
 

@@ -5,9 +5,6 @@
 \alias{news}
 \title{Manipulate the NEWS.md file}
 \format{An R6 class.}
-\usage{
-news
-}
 \description{
 Manipulate the NEWS.md file.
 }
@@ -22,4 +19,94 @@ my_news$add_bullet("point 2")
 \seealso{
 \link{newsmd}
 }
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{news$new()}}
+\item \href{#method-print}{\code{news$print()}}
+\item \href{#method-get_text}{\code{news$get_text()}}
+\item \href{#method-write}{\code{news$write()}}
+\item \href{#method-add_version}{\code{news$add_version()}}
+\item \href{#method-add_subtitle}{\code{news$add_subtitle()}}
+\item \href{#method-add_bullet}{\code{news$add_bullet()}}
+\item \href{#method-clone}{\code{news$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$new(
+  text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
+    "- added NEWS.md creation with newsmd", ""),
+  version = "0.0.0.9000",
+  file = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print"></a>}}
+\subsection{Method \code{print()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$print(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_text"></a>}}
+\subsection{Method \code{get_text()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$get_text()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-write"></a>}}
+\subsection{Method \code{write()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$write(file = "NEWS.md")}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-add_version"></a>}}
+\subsection{Method \code{add_version()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$add_version(x)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-add_subtitle"></a>}}
+\subsection{Method \code{add_subtitle()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$add_subtitle(x)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-add_bullet"></a>}}
+\subsection{Method \code{add_bullet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$add_bullet(x)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{news$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
