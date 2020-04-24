@@ -1,3 +1,15 @@
+## version 0.2.0
+
+---
+
+
+### Style
+
+- changing inital message
+
+- changing travis setup
+- adding lintr
+
 ## version 0.1.0
 
 ---
@@ -14,7 +26,7 @@
 
 ---
 
-### setup
+### NEWS.md setup
 
-- added NEWS.md creation
+- added NEWS.md creation with newsmd
 

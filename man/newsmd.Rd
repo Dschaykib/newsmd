@@ -4,8 +4,12 @@
 \alias{newsmd}
 \title{Creating a NEWS.md file}
 \usage{
-newsmd(file = NULL, text = c(paste0("## version ", version), "", "---", "",
-  "### setup", "", "- added NEWS.md creation", ""), version = "0.0.0.9000")
+newsmd(
+  file = NULL,
+  text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
+    "- added NEWS.md creation with newsmd", ""),
+  version = "0.0.0.9000"
+)
 }
 \arguments{
 \item{file}{name of the \code{NEWS} file to load. If not gieven a new

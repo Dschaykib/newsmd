@@ -31,7 +31,7 @@ r_check_args: --no-build-vignettes --no-manual --timings
 # create code covarage
 jobs:
   include:
-    - stage: covarage
+    - stage: covarage and style
       os: linux
       r: release
       script: Rscript -e 'covr::codecov()'
