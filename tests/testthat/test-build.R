@@ -5,7 +5,8 @@ test_that("get build", {
   news_1 <- newsmd()
   news_2 <- news$new()
   res <- c("## version 0.0.0.9000", "", "---",
-           "", "### setup", "", "- added NEWS.md creation", "")
+           "", "### NEWS.md setup", "",
+           "- added NEWS.md creation with newsmd", "")
 
   expect_identical(class(news_1), c("news", "R6"))
   expect_identical(res, news_1$get_text())
