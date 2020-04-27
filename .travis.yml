@@ -29,6 +29,7 @@ r_build_args: --no-build-vignettes --no-manual
 r_check_args: --no-build-vignettes --no-manual --timings
 
 stages:
+  - name: test
   - name: coverage and style (only comments)
     if: branch != master
   - name: coverage and style (as error)
