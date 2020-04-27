@@ -45,7 +45,7 @@ jobs:
       r: release
       script:
        - R -e 'covr::codecov()'
-       - R CMD INSTALL $PKG_TARBALL
+       - R CMD INSTALL $PKG_TARBALL --no-build-vignettes --no-manual
        - R -e 'lintr::lint_package()'
 
     - stage: coverage and style (as error)
@@ -53,7 +53,7 @@ jobs:
       r: release
       script:
        - R -e 'covr::codecov()'
-       - R CMD INSTALL $PKG_TARBALL
+       - R CMD INSTALL $PKG_TARBALL --no-build-vignettes --no-manual
        - R -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
 
 
