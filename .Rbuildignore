@@ -4,7 +4,7 @@
 ^.RData
 ^.Rhistory
 ^README.md
-^\misc
+^misc
 ^\.circleci
 ^\.travis\.yml$
 ^codecov\.yml$
