@@ -16,6 +16,7 @@ r:
 # needed packages
 r_packages:
   - devtools
+  - testthat
   - covr
 
 r_github_packages:
@@ -43,17 +44,17 @@ jobs:
       os: linux
       r: release
       script:
-       - Rscript -e 'covr::codecov()'
+       - R -e 'covr::codecov()'
        - R CMD INSTALL $PKG_TARBALL
-       - Rscript -e 'lintr::lint_package()'
+       - R -e 'lintr::lint_package()'
 
     - stage: coverage and style (as error)
       os: linux
       r: release
       script:
-       - Rscript -e 'covr::codecov()'
+       - R -e 'covr::codecov()'
        - R CMD INSTALL $PKG_TARBALL
-       - Rscript -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
+       - R -e 'if (length(lintr::lint_package()) > 0) stop("There are still lints present")'
 
 
 
