@@ -65,8 +65,7 @@ my_desc$set_dep("lintr", type = desc::dep_types[3], version = "*")
 my_news$add_bullet(c("changing travis setup",
                      "adding lintr"))
 my_news$add_subtitle("Style")
-my_news$add_bullet(
-  paste0("changing inital message"))
+my_news$add_bullet(paste0("changing inital message"))
 
 
 
