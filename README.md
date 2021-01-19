@@ -1,7 +1,12 @@
 # newsmd <img src="misc/news.png" width=170 align="right" />
-[![Travis-CI Build Status](https://travis-ci.org/Dschaykib/newsmd.svg?branch=master)](https://travis-ci.org/Dschaykib/newsmd)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Dschaykib/newsmd?branch=master&svg=true)](https://ci.appveyor.com/project/Dschaykib/newsmd)
-[![Coverage Status](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/master.svg)](https://codecov.io/github/Dschaykib/newsmd?branch=master)
+
+| branch        | master | dev  |
+| ------------- | ------ | ---- |
+| R CMD check   | [![master-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Amaster) | [![dev-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Adev) |
+| test coverage | [![master-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/master.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/master) | [![dev-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/dev.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/dev) |
+| lints         | [![master-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Amaster) | [![dev-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Adev) |
+
+----
 
 A package to create and update the `NEWS.md` file.
 

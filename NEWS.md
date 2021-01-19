@@ -1,3 +1,10 @@
+## version 0.3.0
+
+---
+
+- removing travis, appveyor and codecov yml
+- adding github actions
+
 ## version 0.2.0
 
 ---

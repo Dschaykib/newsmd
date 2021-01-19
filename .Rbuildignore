@@ -5,7 +5,4 @@
 ^.Rhistory
 ^README.md
 ^misc
-^\.circleci
-^\.travis\.yml$
-^codecov\.yml$
-^appveyor\.yml$
+^\.github$
