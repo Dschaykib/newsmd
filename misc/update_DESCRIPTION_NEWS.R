@@ -71,9 +71,12 @@ my_news$add_bullet(paste0("changing inital message"))
 # changing to github action -----------------------------------------------
 my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
+# change R version dependency
+# for more details, see: https://github.com/r-lib/devtools/issues/1742
+my_desc$set_dep("R", type = desc::dep_types[2], version = ">= 3.3")
+
 my_news$add_bullet(c("removing travis, appveyor and codecov yml",
                      "adding github actions"))
-
 
 # save everything ---------------------------------------------------------
 
