@@ -68,6 +68,11 @@ my_news$add_subtitle("Style")
 my_news$add_bullet(paste0("changing inital message"))
 
 
+# changing to github action -----------------------------------------------
+my_desc$bump_version("minor")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("removing travis, appveyor and codecov yml",
+                     "adding github actions"))
 
 
 # save everything ---------------------------------------------------------
