@@ -24,7 +24,7 @@ my_desc$del("Maintainer")
 # Set the version
 my_desc$set_version("0.0.0.9000")
 # The title of your package
-my_desc$set(Title = "Creation of NEWS.md file")
+my_desc$set(Title = "Creation of NEWS.md File")
 # The description of your package
 my_desc$set(Description =
   paste0("Adding updates (version or bullet points) to the NEWS.md file."))
@@ -118,3 +118,5 @@ writeLines(my_readme, "README.md")
 
 # update documentation
 roxygen2::roxygenise()
+# tidy DESCRIPTON
+usethis::use_tidy_description()
