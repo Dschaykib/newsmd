@@ -52,8 +52,8 @@ news <- R6Class("news",
   public <- list(
     #' @description
     #' Create a new news object.
-    #' @param text Name.
-    #' @param version Hair color.
+    #' @param text vector with context for the news.md file.
+    #' @param version current version of the package.
     #' @param file a text file with the current news.md file.
     #'  Use NULL to create new file.
     #' @return A new `news` object.

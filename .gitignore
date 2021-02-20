@@ -17,6 +17,10 @@
 # RStudio files
 .Rproj.user/
 *Rproj
+.Ruserdata
+
+# package management
+.Renviron
 
 # produced vignettes
 vignettes/*.html
@@ -28,6 +32,7 @@ vignettes/*.pdf
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/
+*_cache/
 
 # Temporary files created by R markdown
 *.utf8.md
@@ -37,3 +42,6 @@ vignettes/*.pdf
 rsconnect/
 .Rproj.user
 inst/doc
+
+# mac OS files
+.DS_Store

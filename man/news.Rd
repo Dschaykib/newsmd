@@ -51,9 +51,9 @@ Create a new news object.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{text}}{Name.}
+\item{\code{text}}{vector with context for the news.md file.}
 
-\item{\code{version}}{Hair color.}
+\item{\code{version}}{current version of the package.}
 
 \item{\code{file}}{a text file with the current news.md file.
 Use NULL to create new file.}

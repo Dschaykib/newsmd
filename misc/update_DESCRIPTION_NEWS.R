@@ -34,7 +34,10 @@ my_desc$set("BugReports",
             "https://github.com/Dschaykib/newsmd/issues")
 
 #Set authors
-my_desc$set("Authors@R", "person('Jakob', 'Gepp', email = 'jakob.gepp@yahoo.de', role = c('cre', 'aut'))")
+my_desc$set("Authors@R",
+            paste0("person('Jakob', 'Gepp',",
+                   "email = 'jakob.gepp@yahoo.de',",
+                   "role = c('cre', 'aut'))"))
 
 # set R version
 my_desc$set_dep("R", type = desc::dep_types[2], version = ">= 3.3.3")
@@ -108,8 +111,9 @@ my_news$write(file = "NEWS.md")
 
 # set version number in README
 my_readme <- readLines("README.md")
-my_readme[1] <- paste0("# newsmd - ", my_desc$get_version(),
-                       " <img src=\"misc/news.png\" width=170 align=\"right\" />")
+my_readme[1] <- paste0(
+  "# newsmd - ", my_desc$get_version(),
+  " <img src=\"misc/news.png\" width=170 align=\"right\" />")
 writeLines(my_readme, "README.md")
 
 # update documentation

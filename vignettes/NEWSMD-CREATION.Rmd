@@ -75,7 +75,7 @@ my_news$add_bullet(c("this is point 1", "this is point 2"))
 
 ### Getting the whole text
 
-After these few changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternativly you can just use `print(my_news)`.
+After these few changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternatively you can just use `print(my_news)`.
 
 ```
 my_news$get_text()

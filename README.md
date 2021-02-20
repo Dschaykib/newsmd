@@ -54,7 +54,7 @@ my_news$add_version("0.0.1")
 
 ### Adding a new subtitle
 
-With `add_subtitle` you can add a new subtitle, where the follwoing bullet points will be under.
+With `add_subtitle` you can add a new subtitle, where the following bullet points will be under.
 
 ```R
 my_news$add_subtitle("Bugfixes")
@@ -70,7 +70,7 @@ my_news$add_bullet(c("this is point 1", "this is point 2"))
 
 ### Getting the whole text
 
-After these fews changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternatively you can just use `print(my_news)`.
+After these few changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternatively you can just use `print(my_news)`.
 
 ```R
 my_news$get_text()
