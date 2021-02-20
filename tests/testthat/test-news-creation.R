@@ -1,7 +1,7 @@
 context("test news creation")
 
 test_that("existing file is checked", {
-  writeLines("test NEWS.md", "tmp_NEWS.md")
+  writeLines(text = "test NEWS.md", con = "tmp_NEWS.md")
   this_warning <- paste0(
     "version check not yet implemented! ",
     "Consider given an initial version. ",

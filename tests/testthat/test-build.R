@@ -11,6 +11,14 @@ test_that("get build", {
   expect_identical(class(news_1), c("news", "R6"))
   expect_identical(res, news_1$get_text())
   expect_identical(res, news_2$get_text())
+
+  # check print
+  tmp1 <- capture_output(expect_identical(cat(res,sep = "\n"), news_1$print()))
+
+  # check write
+  news_1$write(file = "test_build_NEWS.md")
+  unlink("test_build_NEWS.md")
+
 })
 
 test_that("example build", {
