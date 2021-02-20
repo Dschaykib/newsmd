@@ -10,7 +10,7 @@
 ---
 
 - removing travis, appveyor and codecov yml
-- adding github actions
+- adding GitHub actions
 
 ## version 0.2.0
 
@@ -19,10 +19,10 @@
 
 ### Style
 
-- changing inital message
+- changing initial message
 
 - changing travis setup
-- adding lintr
+- adding lint checks
 
 ## version 0.1.0
 
@@ -31,7 +31,7 @@
 
 ### Bugfix
 
-- print method only shows last verion (fix [issue #2](https://github.com/Dschaykib/newsmd/issues/2))
+- print method only shows last version (fix [issue #2](https://github.com/Dschaykib/newsmd/issues/2))
 
 - adding newsmd for easier creation
 - adding circleci

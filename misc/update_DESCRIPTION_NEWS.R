@@ -4,12 +4,15 @@
 unlink("DESCRIPTION")
 unlink("NEWS.md")
 
+if (!requireNamespace("newsmd", quietly = TRUE)) {
+  devtools::install_github("Dschaykib/newsmd")
+}
 
 # initial files -----------------------------------------------------------
 
 # Create a new description object
 my_desc <- desc::description$new("!new")
-my_news <- newsmd()
+my_news <- newsmd::newsmd()
 
 # Set your package name
 my_desc$set("Package", "newsmd")
@@ -24,7 +27,7 @@ my_desc$set_version("0.0.0.9000")
 my_desc$set(Title = "Creation of NEWS.md file")
 # The description of your package
 my_desc$set(Description =
-  paste0("Adding updates (version or bulletpoints) to the NEWS.md file."))
+  paste0("Adding updates (version or bullet points) to the NEWS.md file."))
 # The urls
 my_desc$set("URL", "https://github.com/Dschaykib/newsmd")
 my_desc$set("BugReports",
@@ -53,7 +56,7 @@ my_news$add_bullet(c("adding newsmd for easier creation",
                      "adding circleci"))
 my_news$add_subtitle("Bugfix")
 my_news$add_bullet(
-  paste0("print method only shows last verion ",
+  paste0("print method only shows last version ",
          "(fix [issue #2](https://github.com/Dschaykib/newsmd/issues/2))"))
 
 
@@ -64,12 +67,12 @@ my_news$add_version(my_desc$get_version())
 my_desc$set_dep("lintr", type = desc::dep_types[3], version = "*")
 
 my_news$add_bullet(c("changing travis setup",
-                     "adding lintr"))
+                     "adding lint checks"))
 my_news$add_subtitle("Style")
-my_news$add_bullet(paste0("changing inital message"))
+my_news$add_bullet(paste0("changing initial message"))
 
 
-# changing to github action -----------------------------------------------
+# changing to GitHub action -----------------------------------------------
 
 my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
@@ -78,7 +81,7 @@ my_news$add_version(my_desc$get_version())
 my_desc$set_dep("R", type = desc::dep_types[2], version = ">= 3.3")
 
 my_news$add_bullet(c("removing travis, appveyor and codecov yml",
-                     "adding github actions"))
+                     "adding GitHub actions"))
 
 
 
@@ -91,6 +94,7 @@ my_desc$set_dep("knitr", type = desc::dep_types[3], version = "*")
 my_desc$set_dep("rmarkdown", type = desc::dep_types[3], version = "*")
 my_desc$set_dep("desc", type = desc::dep_types[3], version = "*")
 my_desc$set(VignetteBuilder = "knitr")
+my_desc$set(Language = "en-GB")
 
 my_news$add_bullet(c("adding CRAN test and setup for release",
                      "change test setup from ubuntu 16.04 to 18.04"))
@@ -107,3 +111,6 @@ my_readme <- readLines("README.md")
 my_readme[1] <- paste0("# newsmd - ", my_desc$get_version(),
                        " <img src=\"misc/news.png\" width=170 align=\"right\" />")
 writeLines(my_readme, "README.md")
+
+# update documentation
+roxygen2::roxygenise()
