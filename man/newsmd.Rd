@@ -12,12 +12,12 @@ newsmd(
 )
 }
 \arguments{
-\item{file}{name of the \code{NEWS} file to load. If not gieven a new
+\item{file}{name of the \code{NEWS} file to load. If not given a new
 file \code{NEWS.md} is created.}
 
 \item{text}{a character scalar containing the initial text.}
 
-\item{version}{a charachter with the version in the format
+\item{version}{a character with the version in the format
 \code{major.minor.patch.dev}.}
 }
 \description{
