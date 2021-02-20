@@ -58,6 +58,7 @@ my_news$add_bullet(
 
 
 # changing travis setup and adding lintr ----------------------------------
+
 my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
 my_desc$set_dep("lintr", type = desc::dep_types[3], version = "*")
@@ -69,6 +70,7 @@ my_news$add_bullet(paste0("changing inital message"))
 
 
 # changing to github action -----------------------------------------------
+
 my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
 # change R version dependency
@@ -78,11 +80,30 @@ my_desc$set_dep("R", type = desc::dep_types[2], version = ">= 3.3")
 my_news$add_bullet(c("removing travis, appveyor and codecov yml",
                      "adding github actions"))
 
-# save everything ---------------------------------------------------------
 
+
+# prepare for CRAN --------------------------------------------------------
+
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_desc$set_dep("knitr", type = desc::dep_types[3], version = "*")
+my_desc$set_dep("rmarkdown", type = desc::dep_types[3], version = "*")
+my_desc$set_dep("desc", type = desc::dep_types[3], version = "*")
+my_desc$set(VignetteBuilder = "knitr")
+
+my_news$add_bullet(c("adding CRAN test and setup for release",
+                     "change test setup from ubuntu 16.04 to 18.04"))
+
+
+# save everything ---------------------------------------------------------
 
 my_desc$set("Date", Sys.Date())
 my_desc$write(file = "DESCRIPTION")
 my_news$write(file = "NEWS.md")
 
-
+# set version number in README
+my_readme <- readLines("README.md")
+my_readme[1] <- paste0("# newsmd - ", my_desc$get_version(),
+                       " <img src=\"misc/news.png\" width=170 align=\"right\" />")
+writeLines(my_readme, "README.md")

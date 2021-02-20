@@ -1,3 +1,10 @@
+## version 0.3.0.9000
+
+---
+
+- adding CRAN test and setup for release
+- change test setup from ubuntu 16.04 to 18.04
+
 ## version 0.3.0
 
 ---
