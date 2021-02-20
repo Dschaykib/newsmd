@@ -21,7 +21,7 @@ my_desc$del("Maintainer")
 # Set the version
 my_desc$set_version("0.0.0.9000")
 # The title of your package
-my_desc$set(Title = "creation of NEWS.md file")
+my_desc$set(Title = "Creation of NEWS.md file")
 # The description of your package
 my_desc$set(Description =
   paste0("Adding updates (version or bulletpoints) to the NEWS.md file."))

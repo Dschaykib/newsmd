@@ -1,5 +1,5 @@
 Package: newsmd
-Title: creation of NEWS.md file
+Title: Creation of NEWS.md file
 Version: 0.3.0.9000
 Authors@R: person('Jakob', 'Gepp', email = 'jakob.gepp@yahoo.de', role = c('cre', 'aut'))
 Description: Adding updates (version or bulletpoints) to the NEWS.md file.
