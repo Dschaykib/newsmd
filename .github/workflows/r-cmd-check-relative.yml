@@ -17,9 +17,9 @@ jobs:
           - {os: macOS-latest, r: 'oldrel'}
           - {os: macOS-latest, r: 'release'}
           - {os: macOS-latest, r: 'devel'}
-          - {os: ubuntu-18.04, r: 'oldrel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
-          - {os: ubuntu-18.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
-          - {os: ubuntu-18.04, r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+          - {os: ubuntu-18.04, r: 'oldrel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-18.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-18.04, r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -63,7 +63,7 @@ jobs:
 
       - name: Install dependencies
         if: runner.os != 'Windows'
-        run: remotes::install_deps(dependencies = TRUE)
+        run: remotes::install_deps(dependencies = TRUE, upgrade = "always")
         shell: Rscript {0}
 
 
@@ -75,11 +75,12 @@ jobs:
         run: remotes::install_deps(dependencies = TRUE, type = 'binary')
         shell: Rscript {0}
 
-      #- name: Fix igraph source installation in ubuntu
-      #  if: (runner.os == 'Linux')
-      #  run: |
-      #    Rscript -e "remove.packages(c('igraph'))"
-      #    conda install -c r r-igraph
+      - name: Fix stringi source installation in ubuntu
+        if: (runner.os == 'Linux')
+        run: |
+          remove.packages(c('stringi'))
+          install.packages("stringi", type="source", repos="https://cran.rstudio.com")
+        shell: Rscript {0}
 
 
       - name: Session info
