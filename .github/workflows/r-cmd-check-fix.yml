@@ -60,11 +60,6 @@ jobs:
             eval sudo $cmd
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
 
-      - name: Install dependencies
-        if: runner.os == 'Linux'
-        #run: install.packages("stringi")
-        #shell: Rscript {0}
-
 
       - name: Install dependencies
         if: runner.os != 'Windows'
