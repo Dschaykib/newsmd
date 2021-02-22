@@ -16,8 +16,9 @@ test_that("get build", {
   tmp1 <- capture_output(expect_identical(cat(res, sep = "\n"), news_1$print()))
 
   # check write
-  news_1$write(file = "test_build_NEWS.md")
-  unlink("test_build_NEWS.md")
+  tmp_file <- file.path(paste0(tempdir(), "/test_build_NEWS.md"))
+  news_1$write(file = tmp_file)
+  unlink(tmp_file)
 
 })
 
