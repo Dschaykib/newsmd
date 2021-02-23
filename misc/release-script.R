@@ -54,6 +54,9 @@ inteRgrate::check_gitignore()
 # Update cran-comments.md
 devtools::check()
 
+# check win devel
+devtools::check_win_devel()
+
 # Check for CRAN specific requirements using rhub and save it in the results
 # objects
 results <- rhub::check_for_cran()
