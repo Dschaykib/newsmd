@@ -1,5 +1,14 @@
 
+## Initial submission notes
+
+This is a new package that creates a NEWS.md file. Similar to the desc package for the DESCRIPTION file, R6 objects are used to add context to the NEWS.md file.
+The Note is for a new submission. The mentioned misspelled word is the suffix of a markdown file ".md".
+
+- desc package: https://cran.r-project.org/web/packages/desc/index.html
+
+
 ## Test environments
+
 * local MacOS Catalina, R 4.0.2
 * tested with GitHub actions for R 3.5, R 3.6, R 4.0 on
   - Ubuntu 18.04.5 LTS
@@ -12,27 +21,14 @@
 
 
 ## R CMD check results
+
 > On windows-x86_64-devel (r-devel), ubuntu-gcc-release (r-release), fedora-clang-devel (r-devel)
   checking CRAN incoming feasibility ... NOTE
   
-  
-  New submission
   Maintainer: 'Jakob Gepp <jakob.gepp@yahoo.de>'
-  Version contains large components (0.3.0.9000)
-  
-      Status: 200
-  The Title field should be in title case. Current version is:
-  
-  'creation of NEWS.md file'
-  In title case that is:
-  'Creation of NEWS.md File'
-      From: inst/doc/NEWSMD-CREATION.html
   
   Possibly mis-spelled words in DESCRIPTION:
-    URL: https://www.statworx.com/ (moved to https://www.statworx.com/de/)
-    md (2:25, 5:67)
-      Message: OK
-    bulletpoints (5:41)
-  Found the following (possibly) invalid URLs:
+    md (2:25, 11:10)
+  New submission
 
 0 errors ✓ | 0 warnings ✓ | 1 note x
