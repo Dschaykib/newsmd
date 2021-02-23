@@ -1,4 +1,4 @@
-# newsmd - 0.3.0.9000 <img src="misc/news.png" width=170 align="right" />
+# newsmd - 0.3.1 <img src="misc/news.png" width=170 align="right" />
 
 | branch        | master | dev  |
 | ------------- | ------ | ---- |

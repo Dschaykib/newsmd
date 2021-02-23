@@ -1,3 +1,9 @@
+## version 0.3.1
+
+---
+
+- first CRAN release
+
 ## version 0.3.0.9000
 
 ---

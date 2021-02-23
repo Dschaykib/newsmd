@@ -103,6 +103,14 @@ my_news$add_bullet(c("adding CRAN test and setup for release",
                      "change test setup from ubuntu 16.04 to 18.04"))
 
 
+
+# CRAN release ------------------------------------------------------------
+
+my_desc$bump_version("patch")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("first CRAN release"))
+
 # save everything ---------------------------------------------------------
 
 my_desc$set("Date", Sys.Date())
