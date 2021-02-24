@@ -5,6 +5,8 @@
 | R CMD check   | [![master-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Amaster) | [![dev-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Adev) |
 | test coverage | [![master-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/master.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/master) | [![dev-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/dev.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/dev) |
 | lints         | [![master-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Amaster) | [![dev-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Adev) |
+| CRAN | [![CRAN](https://www.r-pkg.org/badges/version/newsmd)](https://cran.r-project.org/web/packages/newsmd/index.html) | |
+
 
 ----
 
@@ -13,8 +15,11 @@ A package to create and update the `NEWS.md` file.
 ## Installation
 
 ``` R
-# install.packages("devtools")
-devtools::install_github("Dschaykib/newsmd")
+
+install.packages("newsmd")
+
+# for dev version use
+devtools::install_github("Dschaykib/newsmd", ref = "dev")
 library(newsmd)
 ```
 
