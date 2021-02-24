@@ -1,0 +1,131 @@
+---
+title: "An R package to create NEWS.md files"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An R package to create NEWS.md files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+A while back, I started to create an R package that would help me and my colleagues at [STATWORX](https://www.statworx.com/de/) with our daily work. After writing the `DESCRIPTION` file, I did not want to do this ever again. I found the `desc` package which let's you parse, manipulate and reformat the `DESCRIPTION` file via some functions and ergo a script. If you want more info on that, check out their [GitHub repository](https://github.com/r-lib/desc). However, I was too lazy still, because I had to manually write the `NEWS` file.
+
+I longed for the functionality of editing the `NEWS` file in the same script I built for the `DESCRIPTION` file. Since I could not find anything - and already was in a mood for programming - I wrote one my self. In this vignette, I will briefly explain what the package does.
+If you want to create your `NEWS` file from your git commits, than have a look at the [fledge](https://github.com/krlmlr/fledge) package.
+
+
+## Usage of `newsmd`
+
+The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the object's methods.
+
+### Initialise a new object
+
+To initialise a new object you can use two different ways:
+
+```
+# install.packages("devtools")
+devtools::install_github("Dschaykib/newsmd")
+library(newsmd)
+
+my_news <- news$new()
+my_news <- newsmd()
+```
+
+The default text contains markdown code and looks like this:
+
+```R
+## version 0.0.0.9000
+
+---
+
+### NEWS.md setup
+
+- added NEWS.md creation with newsmd
+```
+
+### Adding a the next version
+
+With `add_version` you can update the version number.
+
+```
+my_news$add_version("0.0.1")
+```
+
+### Adding a new subtitle
+
+With `add_subtitle` you can add a new subtitle, where the following bullet points will be under.
+
+```
+my_news$add_subtitle("Bugfixes")
+```
+
+### Adding more bullets
+
+With `add_bullet` you can add more bullet points to the latest version and latest subtitle. 
+
+```
+my_news$add_bullet(c("this is point 1", "this is point 2"))
+```
+
+### Getting the whole text
+
+After these few changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternatively you can just use `print(my_news)`.
+
+```
+my_news$get_text()
+```
+
+```R
+ [1] "## version 0.0.1"                    
+ [2] ""                                    
+ [3] "---"                                 
+ [4] ""                                    
+ [5] ""                                    
+ [6] "### Bugfixes"                        
+ [7] ""                                    
+ [8] "- this is point 1"                   
+ [9] "- this is point 2"                   
+[10] ""                                    
+[11] ""                                    
+[12] "## version 0.0.0.9000"               
+[13] ""                                    
+[14] "---"                                 
+[15] ""                                    
+[16] "### NEWS.md setup"                   
+[17] ""                                    
+[18] "- added NEWS.md creation with newsmd"
+[19] "" 
+```
+
+### Writing the NEWS.md file
+
+At last, with `write` you can save all your changes into the `NEWS.md` file.
+
+```
+my_news$write()
+```
+
+
+
+## Combination with the `desc` package
+
+The goal of this package is to update the `NEWS.md` file in addition to the `DESCRIPTION` file. To optimize the workflow I suggest using the `desc` package, too. For example instead of manually defining the version number, you can use `desc_bump_version()` and `get_version()` of the `desc` package:
+
+```
+my_desc$bump_version("patch")
+my_news$add_version(my_desc$get_version())
+
+my_news$add_bullet("added automated creation for DESCRIPTION and NEWS.md")
+```
+
+The full example script I used for my other package, can be found [here](https://github.com/STATWORX/helfRlein/blob/master/misc/update_DESCRIPTION_NEWS.R).
+
+## Conclusion
+
+I hope this little package will be of help to some of you. If you find some bugs or have ideas that would improve the usage and functionality, I would be pleased if you let me know [on my GitHub](https://github.com/Dschaykib/newsmd/issues).

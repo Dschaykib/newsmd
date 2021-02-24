@@ -9,10 +9,10 @@
 #'  NEWS.md file with the internal method \code{write()}. One can add versions,
 #'  subtitles and bullet points to the \code{news}.
 #'
-#' @param file name of the \code{NEWS} file to load. If not gieven a new
+#' @param file name of the \code{NEWS} file to load. If not given a new
 #'  file \code{NEWS.md} is created.
 #' @param text a character scalar containing the initial text.
-#' @param version a charachter with the version in the format
+#' @param version a character with the version in the format
 #'  \code{major.minor.patch.dev}.
 #'
 #' @export
@@ -50,6 +50,13 @@ newsmd <- function(file = NULL,
 
 news <- R6Class("news",
   public <- list(
+    #' @description
+    #' Create a new news object.
+    #' @param text vector with context for the news.md file.
+    #' @param version current version of the package.
+    #' @param file a text file with the current news.md file.
+    #'  Use NULL to create new file.
+    #' @return A new `news` object.
     initialize = function(text = c(paste0("## version ", version),
                                    "", "---", "",
                                    "### NEWS.md setup", "",
@@ -86,16 +93,27 @@ news <- R6Class("news",
       private$bul_indx <- length(text)
 
       },
-    print = function(...) {
+    #' @description
+    #' Print a news object.
+    print = function() {
       cat("NEWS.md: \n \n")
       cat(private$text[1:private$ver_indx], sep = "\n")
     },
+    #' @description
+    #' Get the news object as a text.
+    #' @return The context of the news file.
     get_text = function() {
       return(private$text)
     },
+    #' @description
+    #' Write and save a news object.
+    #' @param file A path and file to where the news file is saved.
     write = function(file = "NEWS.md") {
       writeLines(private$text, file)
     },
+    #' @description
+    #' Adds a version line to a news object.
+    #' @param x A string with the version number.
     add_version = function(x) {
       private$text <- c(paste("## version", x), "", "---", "", "",
                        private$text)
@@ -103,6 +121,9 @@ news <- R6Class("news",
       private$bul_indx <- 4
       private$ver_indx <- 5
     },
+    #' @description
+    #' Adds a subtitle line to a news object.
+    #' @param x A string with the subtitle.
     add_subtitle = function(x) {
       private$text <- c(
         private$text[1:private$sub_indx],
@@ -111,6 +132,9 @@ news <- R6Class("news",
       private$bul_indx <- private$sub_indx + 3
       private$ver_indx <- private$ver_indx + 4
     },
+    #' @description
+    #' Adds a bullet points to the last subtitle.
+    #' @param x A vector with the bullet points.
     add_bullet = function(x) {
       private$text <- c(
         private$text[1:private$bul_indx],

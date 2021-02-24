@@ -1,4 +1,4 @@
-# newsmd <img src="misc/news.png" width=170 align="right" />
+# newsmd - 0.3.1 <img src="misc/news.png" width=170 align="right" />
 
 | branch        | master | dev  |
 | ------------- | ------ | ---- |
@@ -54,7 +54,7 @@ my_news$add_version("0.0.1")
 
 ### Adding a new subtitle
 
-With `add_subtitle` you can add a new subtile, where the follwoing bullet points will be under.
+With `add_subtitle` you can add a new subtitle, where the following bullet points will be under.
 
 ```R
 my_news$add_subtitle("Bugfixes")
@@ -62,7 +62,7 @@ my_news$add_subtitle("Bugfixes")
 
 ### Adding more bullets
 
-With `add_bullet` you can add more bullet points to the latest version and latest subtile. 
+With `add_bullet` you can add more bullet points to the latest version and latest subtitle. 
 
 ```R
 my_news$add_bullet(c("this is point 1", "this is point 2"))
@@ -70,7 +70,7 @@ my_news$add_bullet(c("this is point 1", "this is point 2"))
 
 ### Getting the whole text
 
-After these fews changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternativly you can just use `print(my_news)`.
+After these few changes, let's see how the file looks. The `get_text`  method will return each single line of the file. Alternatively you can just use `print(my_news)`.
 
 ```R
 my_news$get_text()

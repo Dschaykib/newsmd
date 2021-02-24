@@ -17,9 +17,9 @@ jobs:
           - {os: macOS-latest, r: '3.5'}
           - {os: macOS-latest, r: '3.6'}
           - {os: macOS-latest, r: '4.0'}
-          - {os: ubuntu-16.04, r: '3.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
-          - {os: ubuntu-16.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
-          - {os: ubuntu-16.04, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+          - {os: ubuntu-18.04, r: '3.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-18.04, r: '3.6', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-18.04, r: '4.0', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -39,20 +39,18 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
+          remotes::install_github("Dschaykib/newsmd")
           remotes::install_cran("rcmdcheck")
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Session info
-        run: version
-        shell: Rscript {0}
-
-      #- name: Cache R packages
-      #  if: runner.os != 'Windows'
-      #  uses: actions/cache@v1
-      #  with:
-      #    path: ${{ env.R_LIBS_USER }}
-      #    key: ${{ runner.os }}-r-${{ matrix.config.r }}-1-${{ hashFiles('.github/depends.Rds') }}
-      #    restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-1-
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-1-
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
@@ -60,21 +58,14 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "16.04"), sep = "\n")')
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
 
-
-      - name: Session info
-        run: version
-        shell: Rscript {0}
 
       - name: Install dependencies
         if: runner.os != 'Windows'
-        run: remotes::install_deps(dependencies = TRUE)
+        run: remotes::install_deps(dependencies = TRUE, upgrade = "always")
         shell: Rscript {0}
 
-      - name: Session info
-        run: version
-        shell: Rscript {0}
 
       # newer source versions are available for some packages,
       # but compilation fails on Windows machines (RTools is missing).
@@ -84,19 +75,13 @@ jobs:
         run: remotes::install_deps(dependencies = TRUE, type = 'binary')
         shell: Rscript {0}
 
-      - name: Session info
-        run: version
+      - name: Fix stringi source installation in ubuntu
+        if: (runner.os == 'Linux')
+        run: |
+          remove.packages(c('stringi'))
+          install.packages("stringi", type="source", repos="https://cran.rstudio.com")
         shell: Rscript {0}
 
-      #- name: Fix igraph source installation in ubuntu
-      #  if: (runner.os == 'Linux')
-      #  run: |
-      #    Rscript -e "remove.packages(c('igraph'))"
-      #    conda install -c r r-igraph
-
-      - name: Session info
-        run: version
-        shell: Rscript {0}
 
       - name: Session info
         run: |
