@@ -111,6 +111,16 @@ my_news$add_version(my_desc$get_version())
 # add dependencies for vignette
 my_news$add_bullet(c("first CRAN release"))
 
+
+# WIP ---------------------------------------------------------------------
+
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("current dev version"))
+
+
+
 # save everything ---------------------------------------------------------
 
 my_desc$set("Date", Sys.Date())

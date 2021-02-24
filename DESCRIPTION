@@ -1,7 +1,7 @@
 Package: newsmd
 Title: Creation of NEWS.md File
-Version: 0.3.1
-Date: 2021-02-23
+Version: 0.3.1.9000
+Date: 2021-02-24
 Authors@R: 
     person(given = "Jakob",
            family = "Gepp",
