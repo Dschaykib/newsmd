@@ -1,4 +1,4 @@
-# newsmd - 0.3.1 <img src="misc/news.png" width=170 align="right" />
+# newsmd - 0.3.1.9000 <img src="misc/news.png" width=170 align="right" />
 
 | branch        | master | dev  |
 | ------------- | ------ | ---- |
@@ -26,7 +26,7 @@ library(newsmd)
 
 ## Usage of `newsmd`
 
-The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods.
+The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods. If you want to create the `NEWS.md` file from your commits, then have a look at the `fledge` package [here](https://github.com/krlmlr/fledge).
 
 ### Initialise a new object
 
