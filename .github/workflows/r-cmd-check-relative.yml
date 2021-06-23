@@ -1,4 +1,7 @@
-on: [push, pull_request]
+on:
+  schedule:
+    - cron:  "55 11 * * *"
+
 name: R-CMD-check-relative
 
 jobs:
