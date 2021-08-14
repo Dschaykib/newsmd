@@ -18,6 +18,7 @@
 .Rproj.user/
 *Rproj
 .Ruserdata
+.Rprofile
 
 # package management
 .Renviron

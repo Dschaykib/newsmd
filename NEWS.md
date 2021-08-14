@@ -1,3 +1,10 @@
+## version 0.3.2
+
+---
+
+- add renv setup for development
+- add GitHub PAT for testing
+
 ## version 0.3.1.9000
 
 ---
