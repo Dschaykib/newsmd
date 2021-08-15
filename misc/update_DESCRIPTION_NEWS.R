@@ -116,14 +116,6 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("first CRAN release"))
 
 
-# WIP ---------------------------------------------------------------------
-
-my_desc$bump_version("dev")
-my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
-my_news$add_bullet(c("current dev version"))
-
-
 # Github PAT --------------------------------------------------------------
 
 my_desc$bump_version("patch")
@@ -132,6 +124,19 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("add GitHub PAT for testing"))
 my_news$add_bullet(c("add renv setup for development"))
 
+
+
+
+
+
+
+# WIP ---------------------------------------------------------------------
+
+# bump dev version
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("current dev version"))
 
 
 # save everything ---------------------------------------------------------
