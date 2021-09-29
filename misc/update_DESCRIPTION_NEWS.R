@@ -145,12 +145,21 @@ my_desc$set("Date", Sys.Date())
 my_desc$write(file = "DESCRIPTION")
 my_news$write(file = "NEWS.md")
 
-# set version number in README
+# set CRAN version number in README
 my_readme <- readLines("README.md")
 my_readme[1] <- paste0(
   "# newsmd - ", my_desc$get_version(),
   " <img src=\"misc/news.png\" width=170 align=\"right\" />")
+# set dev version number
+my_readme <- gsub(pattern = "badge/Version-.*-success",
+                  replacement = paste0("badge/Version-",
+                                       my_desc$get_version(),
+                                       "-success"),
+                  x = my_readme)
+
 writeLines(my_readme, "README.md")
+
+
 
 # update documentation
 roxygen2::roxygenise()
