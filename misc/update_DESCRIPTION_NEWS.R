@@ -126,6 +126,13 @@ my_news$add_bullet(c("add renv setup for development"))
 
 
 
+# Change testing schedule -------------------------------------------------
+
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("Change testing schedule to once per week"))
+
 
 
 

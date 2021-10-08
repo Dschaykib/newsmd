@@ -1,8 +1,14 @@
-## version 0.3.2.9000
+## version 0.3.2.9001
 
 ---
 
 - current dev version
+
+## version 0.3.2.9000
+
+---
+
+- Change testing schedule to once per week
 
 ## version 0.3.2
 
