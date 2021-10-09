@@ -116,14 +116,6 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("first CRAN release"))
 
 
-# WIP ---------------------------------------------------------------------
-
-my_desc$bump_version("dev")
-my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
-my_news$add_bullet(c("current dev version"))
-
-
 # Github PAT --------------------------------------------------------------
 
 my_desc$bump_version("patch")
@@ -134,18 +126,47 @@ my_news$add_bullet(c("add renv setup for development"))
 
 
 
+# Change testing schedule -------------------------------------------------
+
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("Change testing schedule to once per week"))
+
+
+
+
+
+# WIP ---------------------------------------------------------------------
+
+# bump dev version
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_bullet(c("current dev version"))
+
+
 # save everything ---------------------------------------------------------
 
 my_desc$set("Date", Sys.Date())
 my_desc$write(file = "DESCRIPTION")
 my_news$write(file = "NEWS.md")
 
-# set version number in README
+# set CRAN version number in README
 my_readme <- readLines("README.md")
 my_readme[1] <- paste0(
   "# newsmd - ", my_desc$get_version(),
   " <img src=\"misc/news.png\" width=170 align=\"right\" />")
+# set dev version number
+my_readme <- gsub(pattern = "badge/Version-.*-success",
+                  replacement = paste0("badge/Version-",
+                                       my_desc$get_version(),
+                                       "-success"),
+                  x = my_readme)
+
 writeLines(my_readme, "README.md")
+
+
 
 # update documentation
 roxygen2::roxygenise()

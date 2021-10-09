@@ -1,15 +1,21 @@
+## version 0.3.2.9001
+
+---
+
+- current dev version
+
+## version 0.3.2.9000
+
+---
+
+- Change testing schedule to once per week
+
 ## version 0.3.2
 
 ---
 
 - add renv setup for development
 - add GitHub PAT for testing
-
-## version 0.3.1.9000
-
----
-
-- current dev version
 
 ## version 0.3.1
 

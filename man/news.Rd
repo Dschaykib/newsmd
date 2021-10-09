@@ -4,7 +4,9 @@
 \name{news}
 \alias{news}
 \title{Manipulate the NEWS.md file}
-\format{An R6 class.}
+\format{
+An R6 class.
+}
 \description{
 Manipulate the NEWS.md file.
 }
@@ -34,6 +36,7 @@ my_news$add_bullet("point 2")
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new news object.
 \subsection{Usage}{
@@ -63,6 +66,7 @@ A new `news` object.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
 \subsection{Method \code{print()}}{
 Print a news object.
 \subsection{Usage}{
@@ -72,6 +76,7 @@ Print a news object.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_text"></a>}}
+\if{latex}{\out{\hypertarget{method-get_text}{}}}
 \subsection{Method \code{get_text()}}{
 Get the news object as a text.
 \subsection{Usage}{
@@ -84,6 +89,7 @@ The context of the news file.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-write"></a>}}
+\if{latex}{\out{\hypertarget{method-write}{}}}
 \subsection{Method \code{write()}}{
 Write and save a news object.
 \subsection{Usage}{
@@ -100,6 +106,7 @@ Write and save a news object.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-add_version"></a>}}
+\if{latex}{\out{\hypertarget{method-add_version}{}}}
 \subsection{Method \code{add_version()}}{
 Adds a version line to a news object.
 \subsection{Usage}{
@@ -116,6 +123,7 @@ Adds a version line to a news object.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-add_subtitle"></a>}}
+\if{latex}{\out{\hypertarget{method-add_subtitle}{}}}
 \subsection{Method \code{add_subtitle()}}{
 Adds a subtitle line to a news object.
 \subsection{Usage}{
@@ -132,6 +140,7 @@ Adds a subtitle line to a news object.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-add_bullet"></a>}}
+\if{latex}{\out{\hypertarget{method-add_bullet}{}}}
 \subsection{Method \code{add_bullet()}}{
 Adds a bullet points to the last subtitle.
 \subsection{Usage}{
@@ -148,6 +157,7 @@ Adds a bullet points to the last subtitle.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
