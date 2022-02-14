@@ -348,6 +348,13 @@
       "Repository": "CRAN",
       "Hash": "8974a907200fc9948d636fe7d85ca9fb"
     },
+    "newsmd": {
+      "Package": "newsmd",
+      "Version": "0.4.0.9000",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "821f599cefbf65628737f9123bff18f2"
+    },
     "openssl": {
       "Package": "openssl",
       "Version": "1.4.4",
