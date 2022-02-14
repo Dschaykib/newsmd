@@ -57,5 +57,5 @@ get_version <- function(file, latest = TRUE) {
     }
   }
 
-  return(version_final)
+  return(as.character(version_final))
 }

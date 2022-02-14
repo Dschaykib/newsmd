@@ -36,7 +36,8 @@ testthat::test_that("version punctuation level", {
                con = tmp_file)
 
     this_version <- get_version(file = tmp_file, latest = TRUE)
-    testthat::expect_equal(this_version, testversions$version_res[i_row])
+    res <- as.character(testversions$version_res[i_row])
+    testthat::expect_equal(this_version, res)
   }
 
 })
