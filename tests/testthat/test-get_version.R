@@ -27,8 +27,8 @@ testthat::test_that("version punctuation level", {
   tmp_file <- file.path(paste0(tempdir(), "/tmp_version.md"))
 
   # looping over all test versions
-  for (i_row in 1:nrow(testversions)) {
-    # i_row <- 1
+  i_row <- 1
+  for (i_row in seq_along(testversions$version_check)) {
     i_version <- testversions$version_check[i_row]
     writeLines(text = c("NEWS.md 10",
                         paste0("# version ", i_version),
@@ -59,4 +59,3 @@ testthat::test_that("version labeling level", {
   testthat::expect_equal(this_version, res)
 
 })
-

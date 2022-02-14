@@ -12,8 +12,8 @@ test_that("given file is checked", {
 
   testthat::expect_warning(news$new(file = tmp_file), this_warning)
 
-  # with version within file, but no given new version
-  writeLines(text = c("old NEWS.md","# version 1.0","- some stuff"),
+  # with version within file but no given new version
+  writeLines(text = c("old NEWS.md", "# version 1.0", "- some stuff"),
              con = tmp_file)
   new_news <- news$new(file = tmp_file)
 
@@ -32,10 +32,9 @@ test_that("given file is checked", {
   testthat::expect_equal(new_news$get_text(), res)
 
 
-  # with version within file, but no given new version
-  writeLines(text = c("old NEWS.md","# version 1.0","- some stuff"),
+  # with version within file and given new version
+  writeLines(text = c("old NEWS.md", "# version 1.0", "- some stuff"),
              con = tmp_file)
-  #readLines(tmp_file)
   new_news <- news$new(file = tmp_file, version = "2.0")
 
   res <- c("## version 2.0",
@@ -48,6 +47,29 @@ test_that("given file is checked", {
            "",
            "old NEWS.md",
            "# version 1.0",
+           "- some stuff")
+
+  testthat::expect_equal(new_news$get_text(), res)
+
+  unlink(tmp_file)
+
+
+  # with dev version within file but no given new version
+  writeLines(text = c("old NEWS.md", "# version 1.0.0.9000", "- some stuff"),
+             con = tmp_file)
+
+  new_news <- news$new(file = tmp_file)
+
+  res <- c("## version 1.0.0.9001",
+           "",
+           "---",
+           "",
+           "### NEWS.md setup",
+           "",
+           "- added NEWS.md creation with newsmd",
+           "",
+           "old NEWS.md",
+           "# version 1.0.0.9000",
            "- some stuff")
 
   testthat::expect_equal(new_news$get_text(), res)

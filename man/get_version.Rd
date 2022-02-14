@@ -9,17 +9,18 @@ get_version(file, latest = TRUE)
 \arguments{
 \item{file}{a path to a file}
 
-\item{latest}{a Boolean, if TRUE (default) only the latest version is returned}
+\item{latest}{a Boolean, if TRUE (default) only the latest version is
+returned}
 }
 \value{
 either a single string or a vector with version numbers
 }
 \description{
-This function tries to extract the version number
-within a file. There are a few pitfalls:
+This function tries to extract the version number within a file.
+  There are a few pitfalls:
 
-* If the word "version" is within the text but denotes a dependency it is
-still detected. * If the files has a date before the version it will return
-the date instead of the version * It is assumed, that the NEWS.md files is
-updated from the top. Ergo the latest version is the first one.
+  * If the word "version" is within the text but denotes a dependency it is
+  still detected. * If the files has a date before the version it will return
+  the date instead of the version * It is assumed, that the NEWS.md files is
+  updated from the top. Ergo the latest version is the first one.
 }
