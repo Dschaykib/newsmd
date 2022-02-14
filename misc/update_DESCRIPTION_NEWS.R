@@ -148,10 +148,10 @@ my_news$add_bullet(c("add get_function()"))
 # WIP ---------------------------------------------------------------------
 
 # bump dev version
-my_desc$bump_version("dev")
-my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
-my_news$add_bullet(c("current dev version"))
+# my_desc$bump_version("dev")
+# my_news$add_version(my_desc$get_version())
+# # add dependencies for vignette
+# my_news$add_bullet(c("current dev version"))
 
 
 # save everything ---------------------------------------------------------

@@ -1,9 +1,3 @@
-## version 0.4.0.9000
-
----
-
-- current dev version
-
 ## version 0.4.0
 
 ---
