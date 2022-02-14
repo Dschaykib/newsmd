@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "3.6.2",
+    "Version": "4.0.5",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -347,14 +347,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "8974a907200fc9948d636fe7d85ca9fb"
-    },
-    "newsmd": {
-      "Package": "newsmd",
-      "Version": "0.3.2",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "/Users/jakobgepp/Projekte/2018/newsmd",
-      "Hash": "74fff93c742f4bd5d15445f98fd56398"
     },
     "openssl": {
       "Package": "openssl",
