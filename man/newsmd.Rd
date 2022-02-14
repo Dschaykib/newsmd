@@ -28,6 +28,9 @@ This is a convenience wrapper for \code{news$new()}. If you already have a
 This functions creates a \code{news} object, which can be saved as the
  NEWS.md file with the internal method \code{write()}. One can add versions,
  subtitles and bullet points to the \code{news}.
+
+ If an existing NEWS.md file is given, the version is extracted with
+ \code{get_version} and the dev part is bumped up.
 }
 \examples{
 newsmd()

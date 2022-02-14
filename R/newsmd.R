@@ -9,6 +9,9 @@
 #'  NEWS.md file with the internal method \code{write()}. One can add versions,
 #'  subtitles and bullet points to the \code{news}.
 #'
+#'  If an existing NEWS.md file is given, the version is extracted with
+#'  \code{get_version} and the dev part is bumped up.
+#'
 #' @param file name of the \code{NEWS} file to load. If not given a new
 #'  file \code{NEWS.md} is created.
 #' @param text a character scalar containing the initial text.
@@ -48,7 +51,8 @@ newsmd <- function(file = NULL,
 #' my_news$add_bullet("point 2")
 #'
 
-news <- R6Class("news",
+news <- R6Class(
+  "news",
   public <- list(
     #' @description
     #' Create a new news object.
@@ -73,16 +77,43 @@ news <- R6Class("news",
         if (!file.exists(file)) {
           stop("given file does not exists")
         }
-        # check if veriosn is given
-        # this is done, since there is no functionality yet
-        # to find the version of a given NEWS.md file
+        # check if it is the default version
+
         if (version == "0.0.0.9000") {
-          this_warning <- paste0(
-            "version check not yet implemented! ",
-            "Consider given an initial version. ",
-            "It is set to 0.0.0.9000 for now.")
-          warning(this_warning)
+
+          # retrieve version of file
+          version <- get_version(file, latest = TRUE)
+          input_version <- FALSE
+        } else {
+          input_version <- TRUE
         }
+
+        if (is.null(version) || length(version) == 0) {
+          msg <- paste0(
+            "No version found in file - ",
+            "consider given an initial version. ",
+            "It is set to 0.0.0.9000 for now."
+          )
+          version <- "0.0.0.9000"
+          warning(msg)
+        } else {
+          msg <- paste0("Version in file found: ", version)
+          message(msg)
+          # bump dev version
+          if (!input_version) {
+            version_str <- as.numeric(strsplit(version, "[-\\.]")[[1]])
+            # no dev version present; set missing components to 0
+            # e.g. from "1.2" to "1.2.0.9000"
+            if (length(version_str) < 4) {
+              version_str[4] <- 9000
+              version_str[is.na(version_str)] <- 0
+            } else {
+              version_str[4] <- version_str[4] + 1
+            }
+            version <- paste0(version_str, collapse = ".")
+          }
+        }
+
         prev_text <- readLines(file)
         private$text <- c(text, prev_text)
         private$version <- version
@@ -92,7 +123,7 @@ news <- R6Class("news",
       private$sub_indx <- 4
       private$bul_indx <- length(text)
 
-      },
+    },
     #' @description
     #' Print a news object.
     print = function() {
@@ -116,7 +147,7 @@ news <- R6Class("news",
     #' @param x A string with the version number.
     add_version = function(x) {
       private$text <- c(paste("## version", x), "", "---", "", "",
-                       private$text)
+                        private$text)
       private$sub_indx <- 4
       private$bul_indx <- 4
       private$ver_indx <- 5

@@ -40,7 +40,7 @@ goodpractice::gp()
 inteRgrate::check_pkg()
 
 # Check if code adheres to standards
-inteRgrate::check_lintr()
+lintr::lint_package(exclusions = list("misc/"))
 
 # Check if your description is tidy
 inteRgrate::check_tidy_description()

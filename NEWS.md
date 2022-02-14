@@ -1,8 +1,12 @@
-## version 0.3.2.9001
+## version 0.4.0
 
 ---
 
-- current dev version
+
+### Add function to retrieve version from existing file
+
+- add get_function()
+
 
 ## version 0.3.2.9000
 

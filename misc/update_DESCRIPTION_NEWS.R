@@ -134,16 +134,24 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("Change testing schedule to once per week"))
 
 
+# add function get_version -------------------------------------------------
+
+my_desc$bump_version("minor")
+my_news$add_version(my_desc$get_version())
+# add dependencies for vignette
+my_news$add_subtitle("Add function to retrieve version from existing file")
+my_news$add_bullet(c("add get_function()"))
+
 
 
 
 # WIP ---------------------------------------------------------------------
 
 # bump dev version
-my_desc$bump_version("dev")
-my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
-my_news$add_bullet(c("current dev version"))
+# my_desc$bump_version("dev")
+# my_news$add_version(my_desc$get_version())
+# # add dependencies for vignette
+# my_news$add_bullet(c("current dev version"))
 
 
 # save everything ---------------------------------------------------------
