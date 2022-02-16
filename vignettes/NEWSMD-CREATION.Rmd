@@ -14,10 +14,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-A while back, I started to create an R package that would help me and my colleagues at [STATWORX](https://www.statworx.com/de/) with our daily work. After writing the `DESCRIPTION` file, I did not want to do this ever again. I found the `desc` package which let's you parse, manipulate and reformat the `DESCRIPTION` file via some functions and ergo a script. If you want more info on that, check out their [GitHub repository](https://github.com/r-lib/desc). However, I was too lazy still, because I had to manually write the `NEWS` file.
+A while back, I started to create an R package that would help me and my colleagues at [STATWORX](https://www.statworx.com/) with our daily work. After writing the `DESCRIPTION` file, I did not want to do this ever again. I found the `desc` package which let's you parse, manipulate and reformat the `DESCRIPTION` file via some functions and ergo a script. If you want more info on that, check out their [GitHub repository](https://github.com/r-lib/desc). However, I was too lazy still, because I had to manually write the `NEWS` file.
 
 I longed for the functionality of editing the `NEWS` file in the same script I built for the `DESCRIPTION` file. Since I could not find anything - and already was in a mood for programming - I wrote one my self. In this vignette, I will briefly explain what the package does.
-If you want to create your `NEWS` file from your git commits, than have a look at the [fledge](https://github.com/krlmlr/fledge) package.
+If you want to create your `NEWS` file from your git commits, than have a look at the [fledge](https://github.com/cynkra/fledge) package.
 
 
 ## Usage of `newsmd`

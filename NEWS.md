@@ -2,11 +2,8 @@
 
 ---
 
-
-### Add function to retrieve version from existing file
-
-- add get_function()
-
+- add get_version() to retrieve version from existing file
+- remove LazyData value in DESCRIPTION file
 
 ## version 0.3.2.9000
 

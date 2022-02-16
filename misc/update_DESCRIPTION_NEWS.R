@@ -8,8 +8,9 @@ if (!requireNamespace("newsmd", quietly = TRUE)) {
   devtools::install_github("Dschaykib/newsmd")
 }
 
-# update packages if needed
-renv::snapshot(prompt = FALSE)
+# update renv packages if needed
+renv::clean()
+renv::snapshot(prompt = TRUE)
 
 
 # initial files -----------------------------------------------------------
@@ -112,7 +113,6 @@ my_news$add_bullet(c("adding CRAN test and setup for release",
 
 my_desc$bump_version("patch")
 my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
 my_news$add_bullet(c("first CRAN release"))
 
 
@@ -120,7 +120,6 @@ my_news$add_bullet(c("first CRAN release"))
 
 my_desc$bump_version("patch")
 my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
 my_news$add_bullet(c("add GitHub PAT for testing"))
 my_news$add_bullet(c("add renv setup for development"))
 
@@ -130,7 +129,6 @@ my_news$add_bullet(c("add renv setup for development"))
 
 my_desc$bump_version("dev")
 my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
 my_news$add_bullet(c("Change testing schedule to once per week"))
 
 
@@ -138,10 +136,10 @@ my_news$add_bullet(c("Change testing schedule to once per week"))
 
 my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
-# add dependencies for vignette
-my_news$add_subtitle("Add function to retrieve version from existing file")
-my_news$add_bullet(c("add get_function()"))
-
+# remove LazyData field, since it creates a NOTE and is not needed
+my_desc$del("LazyData")
+my_news$add_bullet(c("add get_version() to retrieve version from existing file",
+                     "remove LazyData value in DESCRIPTION file"))
 
 
 

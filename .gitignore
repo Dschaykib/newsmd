@@ -22,6 +22,8 @@
 
 # package management
 .Renviron
+# package release checks
+revdep/
 
 # produced vignettes
 vignettes/*.html
