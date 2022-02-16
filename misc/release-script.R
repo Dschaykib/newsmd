@@ -4,10 +4,13 @@
 # - renv install ("remotes")
 # - renv install ("spelling")
 # - renv install ("jumpingrivers/inteRgrate")
+# - renv install ("r-lib/revdepcheck")
+
 
 .rs.restartR()
 source("misc/update_DESCRIPTION_NEWS.R")
 rm(list = ls())
+.rs.restartR()
 
 # Update your R, Rstudio and all dependent R packages
 # (R and Rstudio has to be updated manually
@@ -36,7 +39,7 @@ devtools::spell_check()
 # Run goodpractice check
 goodpractice::gp()
 
-# Check package dependencies
+# check R pkg
 inteRgrate::check_pkg()
 
 # Check if code adheres to standards
@@ -51,6 +54,12 @@ inteRgrate::check_r_filenames()
 # Check if .gitignore contains standard files
 inteRgrate::check_gitignore()
 
+
+# Check package dependencies
+revdepcheck::revdep_check()
+# reset and remove revdep files
+revdepcheck::revdep_reset()
+
 # Update cran-comments.md
 devtools::check()
 
@@ -64,3 +73,10 @@ results <- rhub::check_for_cran()
 # Get the summary of your results
 # takes a while to get
 results$cran_summary()
+
+
+
+# RELEASE -----------------------------------------------------------------
+
+# starts a set of questions to prepare for release and submits at the end
+devtools::release()
