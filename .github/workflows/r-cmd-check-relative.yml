@@ -1,5 +1,5 @@
 on:
-  pull-request:
+  pull_request:
   schedule:
     - cron:  "55 11 * * 1"
 
