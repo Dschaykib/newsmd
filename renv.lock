@@ -685,6 +685,17 @@
       "Hash": "18e9c28c1d3ca1560ce30658b22ce104",
       "Requirements": []
     },
+    "newsmd": {
+      "Package": "newsmd",
+      "Version": "0.4.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/Users/jakobgepp/Projekte/2018/newsmd",
+      "Hash": "7ed9626a21367f95b9e4292b601e2bd9",
+      "Requirements": [
+        "R6"
+      ]
+    },
     "openssl": {
       "Package": "openssl",
       "Version": "1.4.6",
