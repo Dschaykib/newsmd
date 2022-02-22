@@ -1,7 +1,7 @@
 Package: newsmd
 Title: Creation of NEWS.md File
-Version: 0.4.0
-Date: 2022-02-16
+Version: 0.4.0.9000
+Date: 2022-02-22
 Authors@R: 
     person("Jakob", "Gepp", , "jakob.gepp@yahoo.de", role = c("cre", "aut"))
 Description: Adding updates (version or bullet points) to the NEWS.md

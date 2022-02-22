@@ -1,4 +1,4 @@
 library(testthat)
 library(newsmd)
 
-test_check("newsmd")
+testthat::test_check("newsmd")
