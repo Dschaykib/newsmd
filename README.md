@@ -25,7 +25,7 @@ library(newsmd)
 
 ## Usage of `newsmd`
 
-The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods. If you want to create the `NEWS.md` file from your commits, then have a look at the `fledge` package [here](https://github.com/cynkra/fledge).
+The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods. If you want to create the `NEWS.md` file from your git commits, then have a look at these packages: [fledge](https://github.com/cynkra/fledge) or [autonewsmd](https://github.com/kapsner/autonewsmd).
 
 ### Initialise a new object
 
