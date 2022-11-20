@@ -1,6 +1,6 @@
-context("test news creation")
+testthat::context("test news creation")
 
-test_that("given file is checked", {
+testthat::test_that("given file is checked", {
   tmp_file <- file.path(paste0(tempdir(), "/tmp_NEWS.md"))
 
   # no version

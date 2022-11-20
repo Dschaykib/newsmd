@@ -51,7 +51,7 @@ newsmd <- function(file = NULL,
 #' my_news$add_bullet("point 2")
 #'
 
-news <- R6Class(
+news <- R6::R6Class(
   "news",
   public <- list(
     #' @description

@@ -1,11 +1,11 @@
-# newsmd - 0.4.0 <img src="misc/news.png" width=170 align="right" />
+# newsmd - 0.4.0.9000 <img src="misc/news.png" width=170 align="right" />
 
 | branch        | master | dev  |
 | ------------- | ------ | ---- |
 | R CMD check   | [![master-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Amaster) | [![dev-branch](https://github.com/Dschaykib/newsmd/workflows/R-CMD-check-fix/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3AR-CMD-check-fix+branch%3Adev) |
 | test coverage | [![master-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/master.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/master) | [![dev-test-coverage](https://img.shields.io/codecov/c/github/Dschaykib/newsmd/dev.svg)](https://codecov.io/gh/Dschaykib/newsmd/branch/dev) |
 | lints         | [![master-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=master)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Amaster) | [![dev-lints](https://github.com/Dschaykib/newsmd/workflows/lints/badge.svg?branch=dev)](https://github.com/Dschaykib/newsmd/actions?query=workflow%3Alints+branch%3Adev) |
-| CRAN | [![CRAN](https://www.r-pkg.org/badges/version/newsmd)](https://cran.r-project.org/web/packages/newsmd/index.html) | ![DevVersion](https://img.shields.io/badge/Version-0.4.0-success) |
+| CRAN | [![CRAN](https://www.r-pkg.org/badges/version/newsmd)](https://cran.r-project.org/web/packages/newsmd/index.html) | ![DevVersion](https://img.shields.io/badge/Version-0.4.0.9000-success) |
 
 ----
 
@@ -25,7 +25,7 @@ library(newsmd)
 
 ## Usage of `newsmd`
 
-The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods. If you want to create the `NEWS.md` file from your commits, then have a look at the `fledge` package [here](https://github.com/cynkra/fledge).
+The main part of the package is the `news` object, which is an R6 class object and contains the text for the `NEWS.md` file. You can add versions, subtitles and bullet points to it via the objects' methods. If you want to create the `NEWS.md` file from your git commits, then have a look at these packages: [fledge](https://github.com/cynkra/fledge) or [autonewsmd](https://github.com/kapsner/autonewsmd).
 
 ### Initialise a new object
 

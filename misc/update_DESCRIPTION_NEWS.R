@@ -146,10 +146,9 @@ my_news$add_bullet(c("add get_version() to retrieve version from existing file",
 # WIP ---------------------------------------------------------------------
 
 # bump dev version
-# my_desc$bump_version("dev")
-# my_news$add_version(my_desc$get_version())
-# # add dependencies for vignette
-# my_news$add_bullet(c("current dev version"))
+my_desc$bump_version("dev")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("current dev version"))
 
 
 # save everything ---------------------------------------------------------
@@ -173,6 +172,8 @@ my_readme <- gsub(pattern = "badge/Version-.*-success",
 writeLines(my_readme, "README.md")
 
 
+# set pkg names
+origin::originize_pkg()
 
 # update documentation
 roxygen2::roxygenise()

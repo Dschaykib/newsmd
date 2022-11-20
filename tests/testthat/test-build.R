@@ -1,6 +1,6 @@
-context("test news build")
+testthat::context("test news build")
 
-test_that("get build", {
+testthat::test_that("get build", {
 
   news_1 <- newsmd()
   news_2 <- news$new()
@@ -8,12 +8,14 @@ test_that("get build", {
            "", "### NEWS.md setup", "",
            "- added NEWS.md creation with newsmd", "")
 
-  expect_identical(class(news_1), c("news", "R6"))
-  expect_identical(res, news_1$get_text())
-  expect_identical(res, news_2$get_text())
+  testthat::expect_identical(class(news_1), c("news", "R6"))
+  testthat::expect_identical(res, news_1$get_text())
+  testthat::expect_identical(res, news_2$get_text())
 
   # check print
-  tmp1 <- capture_output(expect_identical(cat(res, sep = "\n"), news_1$print()))
+  tmp1 <- testthat::capture_output(
+    testthat::expect_identical(cat(res, sep = "\n"), news_1$print())
+    )
 
   # check write
   tmp_file <- file.path(paste0(tempdir(), "/test_build_NEWS.md"))
@@ -22,7 +24,7 @@ test_that("get build", {
 
 })
 
-test_that("example build", {
+testthat::test_that("example build", {
   my_news <- news$new()
   my_news$add_subtitle("improved things 1")
   my_news$add_bullet("point 1")
@@ -52,5 +54,5 @@ test_that("example build", {
     "### NEWS.md setup", "", "- added NEWS.md creation with newsmd",
     "")
 
-  expect_equal(my_news$get_text(), res)
+  testthat::expect_equal(my_news$get_text(), res)
 })
