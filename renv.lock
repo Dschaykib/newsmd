@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.0.5",
+    "Version": "4.2.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -685,17 +685,6 @@
       "Hash": "18e9c28c1d3ca1560ce30658b22ce104",
       "Requirements": []
     },
-    "newsmd": {
-      "Package": "newsmd",
-      "Version": "0.4.0",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "/Users/jakobgepp/Projekte/2018/newsmd",
-      "Hash": "7ed9626a21367f95b9e4292b601e2bd9",
-      "Requirements": [
-        "R6"
-      ]
-    },
     "openssl": {
       "Package": "openssl",
       "Version": "1.4.6",
@@ -704,6 +693,17 @@
       "Hash": "69fdf291af288f32fd4cd93315084ea8",
       "Requirements": [
         "askpass"
+      ]
+    },
+    "origin": {
+      "Package": "origin",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e105b8521b8ac6cb2c361ccdc185fb2f",
+      "Requirements": [
+        "cli",
+        "rstudioapi"
       ]
     },
     "parsedate": {
@@ -914,7 +914,7 @@
       "RemoteRef": "main",
       "RemoteSha": "3c6a32ff89ebea3356170526d39890b6f39d61c8",
       "Remotes": "r-lib/crancache",
-      "Hash": "ac4de211434e57bf4677d67484c6ee28",
+      "Hash": "db92276baa554c82e3ce65a43e3f9bc0",
       "Requirements": [
         "DBI",
         "RSQLite",

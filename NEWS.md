@@ -1,8 +1,8 @@
-## version 0.4.0.9000
+## version 0.4.1
 
 ---
 
-- current dev version
+- fix testing setup
 
 ## version 0.4.0
 
