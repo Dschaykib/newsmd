@@ -6,6 +6,7 @@ unlink("NEWS.md")
 
 if (!requireNamespace("newsmd", quietly = TRUE)) {
   devtools::install_github("Dschaykib/newsmd")
+  # install.packages("newsmd")
 }
 
 # update renv packages if needed
@@ -142,13 +143,20 @@ my_news$add_bullet(c("add get_version() to retrieve version from existing file",
                      "remove LazyData value in DESCRIPTION file"))
 
 
+# add function get_version -------------------------------------------------
+
+my_desc$bump_version("patch")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("fix testing setup"))
+
+
 
 # WIP ---------------------------------------------------------------------
 
 # bump dev version
-my_desc$bump_version("dev")
-my_news$add_version(my_desc$get_version())
-my_news$add_bullet(c("current dev version"))
+#my_desc$bump_version("dev")
+#my_news$add_version(my_desc$get_version())
+#my_news$add_bullet(c("current dev version"))
 
 
 # save everything ---------------------------------------------------------
