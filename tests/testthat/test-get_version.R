@@ -1,4 +1,4 @@
-testthat::context("test get_Version")
+testthat::context("test get_version")
 
 testthat::test_that("version punctuation level", {
 

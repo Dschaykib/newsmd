@@ -1,3 +1,9 @@
+## version 0.5.0
+
+---
+
+- add function to combine dev version's points
+
 ## version 0.4.1
 
 ---
@@ -74,5 +80,5 @@
 
 ### NEWS.md setup
 
-- added NEWS.md creation with newsmd
+- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)
 

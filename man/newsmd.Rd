@@ -7,7 +7,7 @@
 newsmd(
   file = NULL,
   text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
-    "- added NEWS.md creation with newsmd", ""),
+    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
   version = "0.0.0.9000"
 )
 }

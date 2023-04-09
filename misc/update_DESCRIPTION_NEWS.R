@@ -151,6 +151,14 @@ my_news$add_bullet(c("fix testing setup"))
 
 
 
+# add function combine_dev ------------------------------------------------
+
+my_desc$bump_version("minor")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("add function to combine dev version's points"))
+
+
+
 # WIP ---------------------------------------------------------------------
 
 # bump dev version

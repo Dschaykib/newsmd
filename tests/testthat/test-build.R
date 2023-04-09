@@ -6,7 +6,7 @@ testthat::test_that("get build", {
   news_2 <- news$new()
   res <- c("## version 0.0.0.9000", "", "---",
            "", "### NEWS.md setup", "",
-           "- added NEWS.md creation with newsmd", "")
+           "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", "")
 
   testthat::expect_identical(class(news_1), c("news", "R6"))
   testthat::expect_identical(res, news_1$get_text())
@@ -51,7 +51,8 @@ testthat::test_that("example build", {
     "", "---", "",
     "", "### improved things 1", "",
     "- point 2", "- point 1", "",
-    "### NEWS.md setup", "", "- added NEWS.md creation with newsmd",
+    "### NEWS.md setup", "",
+    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
     "")
 
   testthat::expect_equal(my_news$get_text(), res)
