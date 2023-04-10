@@ -26,7 +26,7 @@ newsmd <- function(file = NULL,
                    text = c(paste0("## version ", version),
                             "", "---", "",
                             "### NEWS.md setup", "",
-                            "- added NEWS.md creation with newsmd", ""),
+                            "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
                    version = "0.0.0.9000") {
   news$new(file = file, text = text, version = version)
 }
@@ -61,12 +61,15 @@ news <- R6::R6Class(
     #' @param file a text file with the current news.md file.
     #'  Use NULL to create new file.
     #' @return A new `news` object.
-    initialize = function(text = c(paste0("## version ", version),
-                                   "", "---", "",
-                                   "### NEWS.md setup", "",
-                                   "- added NEWS.md creation with newsmd", ""),
-                          version = "0.0.0.9000",
-                          file = NULL) {
+    initialize = function(
+    text = c(
+      paste0("## version ", version),
+      "", "---", "",
+      "### NEWS.md setup", "",
+      "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
+      ""),
+    version = "0.0.0.9000",
+    file = NULL) {
 
       if (is.null(file)) {
         private$text <- text
@@ -139,8 +142,15 @@ news <- R6::R6Class(
     #' @description
     #' Write and save a news object.
     #' @param file A path and file to where the news file is saved.
-    write = function(file = "NEWS.md") {
-      writeLines(private$text, file)
+    #' @param reduce_dev A boolean, if TRUE dev version's points are combined
+    #'   into the next version
+    write = function(file = "NEWS.md", reduce_dev = FALSE) {
+      if (reduce_dev) {
+        text <- combine_dev(private$text)
+      } else {
+        text <- private$text
+      }
+      writeLines(text = text, con = file)
     },
     #' @description
     #' Adds a version line to a news object.

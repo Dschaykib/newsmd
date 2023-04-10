@@ -42,7 +42,7 @@ Create a new news object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{news$new(
   text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
-    "- added NEWS.md creation with newsmd", ""),
+    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
   version = "0.0.0.9000",
   file = NULL
 )}\if{html}{\out{</div>}}
@@ -93,13 +93,16 @@ The context of the news file.
 \subsection{Method \code{write()}}{
 Write and save a news object.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$write(file = "NEWS.md")}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{news$write(file = "NEWS.md", reduce_dev = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{file}}{A path and file to where the news file is saved.}
+
+\item{\code{reduce_dev}}{A boolean, if TRUE dev version's points are combined
+into the next version}
 }
 \if{html}{\out{</div>}}
 }
