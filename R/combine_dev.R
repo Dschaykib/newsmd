@@ -28,5 +28,3 @@ combine_dev <- function(text = "") {
   return(out)
 
 }
-
-
