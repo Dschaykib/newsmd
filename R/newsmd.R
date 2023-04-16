@@ -22,12 +22,14 @@
 #' @examples
 #' newsmd()
 
-newsmd <- function(file = NULL,
-                   text = c(paste0("## version ", version),
-                            "", "---", "",
-                            "### NEWS.md setup", "",
-                            "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
-                   version = "0.0.0.9000") {
+newsmd <- function(
+    file = NULL,
+    text = c(paste0(
+      "## version ", version),
+      "", "---", "",
+      "### NEWS.md setup", "",
+      "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
+    version = "0.0.0.9000") {
   news$new(file = file, text = text, version = version)
 }
 
