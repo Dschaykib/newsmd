@@ -1,3 +1,9 @@
+## version 0.5.1
+
+---
+
+- fix format for initial NEWS.md line
+
 ## version 0.5.0
 
 ---

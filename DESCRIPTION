@@ -1,7 +1,7 @@
 Package: newsmd
 Title: Creation of NEWS.md File
-Version: 0.5.0
-Date: 2023-04-10
+Version: 0.5.1
+Date: 2023-04-16
 Authors@R: 
     person("Jakob", "Gepp", , "jakob.gepp@yahoo.de", role = c("cre", "aut"))
 Description: Adding updates (version or bullet points) to the NEWS.md
@@ -23,4 +23,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Language: en-GB
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3

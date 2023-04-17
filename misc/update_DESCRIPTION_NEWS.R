@@ -157,6 +157,9 @@ my_desc$bump_version("minor")
 my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("add function to combine dev version's points"))
 
+my_desc$bump_version("patch")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("fix format for initial NEWS.md line"))
 
 
 # WIP ---------------------------------------------------------------------
@@ -195,3 +198,4 @@ origin::originize_pkg()
 roxygen2::roxygenise()
 # tidy DESCRIPTON
 usethis::use_tidy_description()
+

@@ -24,19 +24,19 @@ my_news$add_bullet("point 2")
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{news$new()}}
-\item \href{#method-print}{\code{news$print()}}
-\item \href{#method-get_text}{\code{news$get_text()}}
-\item \href{#method-write}{\code{news$write()}}
-\item \href{#method-add_version}{\code{news$add_version()}}
-\item \href{#method-add_subtitle}{\code{news$add_subtitle()}}
-\item \href{#method-add_bullet}{\code{news$add_bullet()}}
-\item \href{#method-clone}{\code{news$clone()}}
+\item \href{#method-news-new}{\code{news$new()}}
+\item \href{#method-news-print}{\code{news$print()}}
+\item \href{#method-news-get_text}{\code{news$get_text()}}
+\item \href{#method-news-write}{\code{news$write()}}
+\item \href{#method-news-add_version}{\code{news$add_version()}}
+\item \href{#method-news-add_subtitle}{\code{news$add_subtitle()}}
+\item \href{#method-news-add_bullet}{\code{news$add_bullet()}}
+\item \href{#method-news-clone}{\code{news$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-news-new"></a>}}
+\if{latex}{\out{\hypertarget{method-news-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new news object.
 \subsection{Usage}{
@@ -65,8 +65,8 @@ A new `news` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-news-print"></a>}}
+\if{latex}{\out{\hypertarget{method-news-print}{}}}
 \subsection{Method \code{print()}}{
 Print a news object.
 \subsection{Usage}{
@@ -75,8 +75,8 @@ Print a news object.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_text"></a>}}
-\if{latex}{\out{\hypertarget{method-get_text}{}}}
+\if{html}{\out{<a id="method-news-get_text"></a>}}
+\if{latex}{\out{\hypertarget{method-news-get_text}{}}}
 \subsection{Method \code{get_text()}}{
 Get the news object as a text.
 \subsection{Usage}{
@@ -88,8 +88,8 @@ The context of the news file.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-write"></a>}}
-\if{latex}{\out{\hypertarget{method-write}{}}}
+\if{html}{\out{<a id="method-news-write"></a>}}
+\if{latex}{\out{\hypertarget{method-news-write}{}}}
 \subsection{Method \code{write()}}{
 Write and save a news object.
 \subsection{Usage}{
@@ -108,8 +108,8 @@ into the next version}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_version"></a>}}
-\if{latex}{\out{\hypertarget{method-add_version}{}}}
+\if{html}{\out{<a id="method-news-add_version"></a>}}
+\if{latex}{\out{\hypertarget{method-news-add_version}{}}}
 \subsection{Method \code{add_version()}}{
 Adds a version line to a news object.
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Adds a version line to a news object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_subtitle"></a>}}
-\if{latex}{\out{\hypertarget{method-add_subtitle}{}}}
+\if{html}{\out{<a id="method-news-add_subtitle"></a>}}
+\if{latex}{\out{\hypertarget{method-news-add_subtitle}{}}}
 \subsection{Method \code{add_subtitle()}}{
 Adds a subtitle line to a news object.
 \subsection{Usage}{
@@ -142,8 +142,8 @@ Adds a subtitle line to a news object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_bullet"></a>}}
-\if{latex}{\out{\hypertarget{method-add_bullet}{}}}
+\if{html}{\out{<a id="method-news-add_bullet"></a>}}
+\if{latex}{\out{\hypertarget{method-news-add_bullet}{}}}
 \subsection{Method \code{add_bullet()}}{
 Adds a bullet points to the last subtitle.
 \subsection{Usage}{
@@ -159,8 +159,8 @@ Adds a bullet points to the last subtitle.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-news-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-news-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

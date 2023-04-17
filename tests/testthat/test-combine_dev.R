@@ -2,33 +2,33 @@ testthat::context("test combine_dev")
 
 testthat::test_that("example build", {
   my_news <- news$new()
-  my_news$add_subtitle("improved things 1")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 0.1")
   my_news$add_bullet("point 0.2")
   my_news$add_version("0.0.1")
   my_news$add_bullet("point 1.1")
   my_news$add_bullet("point 1.2")
-  my_news$add_subtitle("improved things 2")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 1.3")
   my_news$add_version("0.0.1.9000")
   my_news$add_bullet("point 1.4")
   my_news$add_bullet("point 1.5")
-  my_news$add_subtitle("improved things 2")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 1.6")
   my_news$add_version("0.0.1.9001")
   my_news$add_bullet("point 1.7")
   my_news$add_bullet("point 1.8")
-  my_news$add_subtitle("improved things 2")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 1.9")
   my_news$add_version("0.0.2")
   my_news$add_bullet("point 2.1")
   my_news$add_bullet("point 2.2")
-  my_news$add_subtitle("improved things 2")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 2.3")
   my_news$add_version("0.0.3.9000")
   my_news$add_bullet("point 3.1")
   my_news$add_bullet("point 3.2")
-  my_news$add_subtitle("improved things 2")
+  my_news$add_subtitle("improved things")
   my_news$add_bullet("point 3.3")
 
   res <- c(
@@ -37,7 +37,7 @@ testthat::test_that("example build", {
     "---",
     "",
     "",
-    "### improved things 2",
+    "### improved things",
     "",
     "- point 3.3",
     "",
@@ -49,21 +49,21 @@ testthat::test_that("example build", {
     "---",
     "",
     "",
-    "### improved things 2",
+    "### improved things",
     "",
     "- point 2.3",
     "",
     "- point 2.2",
     "- point 2.1",
     "",
-    "### improved things 2",
+    "### improved things",
     "",
     "- point 1.9",
     "",
     "- point 1.8",
     "- point 1.7",
     "",
-    "### improved things 2",
+    "### improved things",
     "",
     "- point 1.6",
     "",
@@ -75,14 +75,14 @@ testthat::test_that("example build", {
     "---",
     "",
     "",
-    "### improved things 2",
+    "### improved things",
     "",
     "- point 1.3",
     "",
     "- point 1.2",
     "- point 1.1",
     "",
-    "### improved things 1",
+    "### improved things",
     "",
     "- point 0.2",
     "- point 0.1",
