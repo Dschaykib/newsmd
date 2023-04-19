@@ -11,3 +11,4 @@
 ^renv$
 ^renv\.lock$
 ^revdep
+^CRAN-SUBMISSION$
