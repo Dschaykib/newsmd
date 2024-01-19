@@ -162,6 +162,12 @@ my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("fix format for initial NEWS.md line"))
 
 
+# add function combine_dev ------------------------------------------------
+
+my_desc$bump_version("patch")
+my_news$add_version(my_desc$get_version())
+my_news$add_bullet(c("add vulnerabilities scans with oyster"))
+
 # WIP ---------------------------------------------------------------------
 
 # bump dev version
@@ -169,6 +175,13 @@ my_news$add_bullet(c("fix format for initial NEWS.md line"))
 #my_news$add_version(my_desc$get_version())
 #my_news$add_bullet(c("current dev version"))
 
+
+
+# get vulnerabilities -----------------------------------------------------
+
+audit_renv <- oysteR::audit_renv_lock(dir = dirname(renv::paths$lockfile()))
+vuls_num <- sum(audit_renv$no_of_vulnerabilities)
+vuls_status <- ifelse(vuls_num == 0, "success", "red")
 
 # save everything ---------------------------------------------------------
 
@@ -187,6 +200,15 @@ my_readme <- gsub(pattern = "badge/Version-.*-success",
                                        my_desc$get_version(),
                                        "-success"),
                   x = my_readme)
+# set vulnerabilities
+vuls_idx <- grep(pattern = "\\| vulnerabilities \\|", x = my_readme)
+my_readme[vuls_idx] <- paste0(
+  "| vulnerabilities | - | ![vulnerabilities]",
+  "(https://img.shields.io/badge/vulnerabilities-",
+  vuls_num, "-", vuls_status, ") |"
+)
+
+
 
 writeLines(my_readme, "README.md")
 

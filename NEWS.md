@@ -1,3 +1,9 @@
+## version 0.5.2
+
+---
+
+- add vulnerabilities scans with oyster
+
 ## version 0.5.1
 
 ---
