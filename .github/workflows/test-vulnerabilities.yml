@@ -13,8 +13,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::renv
-          extra-packages: any::oysteR
+          extra-packages: any::renv, any::oysteR
 
       - name: Check vulnerabilities
         run: |
@@ -27,4 +26,4 @@ jobs:
           # there could be differences in the local usage
           audit_install <- oysteR::audit_installed_r_pkgs()
           testthat::expect_equal(sum(audit_install$no_of_vulnerabilities), 0)
-        sshell: Rscript {0}
+        shell: Rscript {0}
