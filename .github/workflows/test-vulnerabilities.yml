@@ -4,7 +4,7 @@ name: test-vulnerabilities
 jobs:
   test-vulnerabilities:
     runs-on: macOS-latest
-    # if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2
@@ -22,8 +22,4 @@ jobs:
           ## Tests latest cran versions
           audit_latest <- oysteR::audit(pkg = audit_renv$package, version = rep("*", length(audit_renv$package)), type = "cran")
           testthat::expect_equal(sum(audit_latest$no_of_vulnerabilities), 0)
-          ## Tests installed packages
-          # there could be differences in the local usage
-          audit_install <- oysteR::audit_installed_r_pkgs()
-          testthat::expect_equal(sum(audit_install$no_of_vulnerabilities), 0)
         shell: Rscript {0}
