@@ -167,6 +167,7 @@ my_news$add_bullet(c("fix format for initial NEWS.md line"))
 my_desc$bump_version("patch")
 my_news$add_version(my_desc$get_version())
 my_news$add_bullet(c("add vulnerabilities scans with oyster"))
+my_desc$set_dep("oysteR", type = desc::dep_types[3], version = "*")
 
 # WIP ---------------------------------------------------------------------
 

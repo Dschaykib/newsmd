@@ -42,7 +42,8 @@ Create a new news object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{news$new(
   text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
-    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
+    paste0("- added NEWS.md creation with ",
+    "[newsmd](https://github.com/Dschaykib/newsmd)"), ""),
   version = "0.0.0.9000",
   file = NULL
 )}\if{html}{\out{</div>}}

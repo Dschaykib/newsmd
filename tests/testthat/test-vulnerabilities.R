@@ -1,5 +1,7 @@
 testthat::test_that("there are no known vulnerablities", {
   testthat::skip_on_cran()
+
+
   ## Tests specific versions
   audit_renv <- oysteR::audit_renv_lock(dir = dirname(renv::paths$lockfile()))
   testthat::expect_equal(sum(audit_renv$no_of_vulnerabilities), 0)

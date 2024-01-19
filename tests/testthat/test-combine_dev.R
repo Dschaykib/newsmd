@@ -89,7 +89,8 @@ testthat::test_that("example build", {
     "",
     "### NEWS.md setup",
     "",
-    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
+    paste0("- added NEWS.md creation with ",
+           "[newsmd](https://github.com/Dschaykib/newsmd)"),
     ""
     )
 

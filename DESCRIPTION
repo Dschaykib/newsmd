@@ -17,6 +17,7 @@ Suggests:
     desc,
     knitr,
     lintr,
+    oysteR,
     rmarkdown,
     testthat
 VignetteBuilder: 

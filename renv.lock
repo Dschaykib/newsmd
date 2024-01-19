@@ -985,14 +985,9 @@
     },
     "oysteR": {
       "Package": "oysteR",
-      "Version": "0.1.3.9001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "sonatype-nexus-community",
-      "RemoteRepo": "oysteR",
-      "RemoteRef": "master",
-      "RemoteSha": "236e746a1f3f374ea22f30271ec784d32d8fcc6f",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "cli",
@@ -1009,7 +1004,7 @@
         "utils",
         "yaml"
       ],
-      "Hash": "3ce7e923f7241309d7c4da447aaf2605"
+      "Hash": "a4e3a3833c2110a9acce26df2defd51e"
     },
     "parsedate": {
       "Package": "parsedate",
