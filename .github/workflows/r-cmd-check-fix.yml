@@ -13,13 +13,13 @@ jobs:
         config:
           # WINDOWS
           - {os: windows-latest, r: '4.1'}
-          - {os: windows-latest, r: '4.2'}
+          - {os: windows-latest, r: '4.5'}
           # MAC
           - {os: macOS-latest, r: '4.1'}
-          - {os: macOS-latest, r: '4.2'}
+          - {os: macOS-latest, r: '4.5'}
           # LINUX
           - {os: ubuntu-latest, r: '4.1'}
-          - {os: ubuntu-latest, r: '4.2'}
+          - {os: ubuntu-latest, r: '4.5'}
 
 
     env:
