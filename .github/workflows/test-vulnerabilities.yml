@@ -31,12 +31,18 @@ jobs:
           )
         shell: Rscript {0}
 
-      # Publish a branch-specific Shields endpoint. This runs only after a
-      # push to master/dev; pull-request runs remain read-only checks.
+      # A PR checks out a temporary merge commit by default. Switch to its
+      # source branch so the target branch's badge becomes part of the PR.
+      - name: Check out PR source branch for badge
+        if: github.event_name == 'pull_request' && github.base_ref == 'master' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
       - name: Create vulnerability badge data
-        if: github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'dev')
+        if: (github.event_name == 'push' && github.ref_name == 'dev') || (github.event_name == 'pull_request' && github.base_ref == 'master' && github.event.pull_request.head.repo.full_name == github.repository)
         env:
-          BADGE_BRANCH: ${{ github.ref_name }}
+          BADGE_BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
         run: |
           cves <- vulnr::check(
             lib = NULL,
@@ -63,13 +69,17 @@ jobs:
         shell: Rscript {0}
 
       - name: Commit vulnerability badge data
-        if: github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'dev')
+        if: (github.event_name == 'push' && github.ref_name == 'dev') || (github.event_name == 'pull_request' && github.base_ref == 'master' && github.event.pull_request.head.repo.full_name == github.repository)
+        env:
+          BADGE_BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "badges/vulnerabilities-${GITHUB_REF_NAME}.json"
-          git diff --cached --quiet || git commit -m "Update ${GITHUB_REF_NAME} vulnerability badge [skip ci]"
-          git push
+          git add "badges/vulnerabilities-${BADGE_BRANCH}.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Update ${BADGE_BRANCH} vulnerability badge"
+            git push
+          fi
 
       - name: Fail when vulnerabilities are found
         if: steps.check_vulnerabilities.outcome == 'failure'
