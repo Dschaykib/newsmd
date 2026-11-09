@@ -92,7 +92,7 @@ testthat::test_that("example build", {
     paste0("- added NEWS.md creation with ",
            "[newsmd](https://github.com/Dschaykib/newsmd)"),
     ""
-    )
+  )
 
   # write and reload
   tmp_file <- file.path(paste0(tempdir(), "/test_build_dev_NEWS.md"))

@@ -1,3 +1,9 @@
+## version 0.5.3
+
+---
+
+- remove oyster and change to vulnr
+
 ## version 0.5.2
 
 ---

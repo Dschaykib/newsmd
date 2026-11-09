@@ -8,7 +8,8 @@ testthat::test_that("given file is checked", {
   this_warning <- paste0(
     "No version found in file - ",
     "consider given an initial version. ",
-    "It is set to 0.0.0.9000 for now.")
+    "It is set to 0.0.0.9000 for now."
+  )
 
   testthat::expect_warning(news$new(file = tmp_file), this_warning)
 
@@ -29,7 +30,8 @@ testthat::test_that("given file is checked", {
     "",
     "old NEWS.md",
     "# version 1.0",
-    "- some stuff")
+    "- some stuff"
+  )
 
   testthat::expect_equal(new_news$get_text(), res)
 
@@ -76,7 +78,8 @@ testthat::test_that("given file is checked", {
     "",
     "old NEWS.md",
     "# version 1.0.0.9000",
-    "- some stuff")
+    "- some stuff"
+  )
 
   testthat::expect_equal(new_news$get_text(), res)
 

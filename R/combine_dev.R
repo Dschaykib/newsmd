@@ -11,7 +11,8 @@ combine_dev <- function(text = "") {
 
   is_dev <- grepl(
     pattern = "[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+",
-    x = version_tags)
+    x = version_tags
+  )
 
   change_dev <- is_dev & !as.logical(cummin(is_dev))
 

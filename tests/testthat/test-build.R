@@ -57,7 +57,8 @@ testthat::test_that("example build", {
     "### NEWS.md setup", "",
     paste0("- added NEWS.md creation with ",
            "[newsmd](https://github.com/Dschaykib/newsmd)"),
-    "")
+    ""
+  )
 
   testthat::expect_equal(my_news$get_text(), res)
 })

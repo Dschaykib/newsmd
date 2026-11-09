@@ -174,7 +174,8 @@ news <- R6::R6Class(
       private$text <- c(
         private$text[1:private$sub_indx],
         "", paste("###", x), "", "",
-        private$text[(private$sub_indx + 1):length(private$text)])
+        private$text[(private$sub_indx + 1):length(private$text)]
+      )
       private$bul_indx <- private$sub_indx + 3
       private$ver_indx <- private$ver_indx + 4
     },
@@ -185,7 +186,8 @@ news <- R6::R6Class(
       private$text <- c(
         private$text[1:private$bul_indx],
         paste("-", x),
-        private$text[(private$bul_indx + 1):length(private$text)])
+        private$text[(private$bul_indx + 1):length(private$text)]
+      )
       private$ver_indx <- private$ver_indx + length(x)
     }),
   private = list(

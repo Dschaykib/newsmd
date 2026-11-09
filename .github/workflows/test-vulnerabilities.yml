@@ -1,25 +1,76 @@
 on: [push, pull_request]
 name: test-vulnerabilities
 
+permissions:
+  contents: write
+
 jobs:
   test-vulnerabilities:
     runs-on: macOS-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::renv, any::oysteR
+          extra-packages: any::renv, any::vulnr
 
       - name: Check vulnerabilities
+        id: check_vulnerabilities
+        continue-on-error: true
         run: |
-          audit_renv <- oysteR::audit_renv_lock(dir = dirname(renv::paths$lockfile()))
-          testthat::expect_equal(sum(audit_renv$no_of_vulnerabilities), 0)
-          ## Tests latest cran versions
-          audit_latest <- oysteR::audit(pkg = audit_renv$package, version = rep("*", length(audit_renv$package)), type = "cran")
-          testthat::expect_equal(sum(audit_latest$no_of_vulnerabilities), 0)
+          vulnr::check(
+            lib = NULL,
+            renv_file = NULL,
+            dcf = "DESCRIPTION",
+            dependencies = TRUE,
+            return_cves = FALSE
+          )
         shell: Rscript {0}
+
+      # Publish a branch-specific Shields endpoint. This runs only after a
+      # push to master/dev; pull-request runs remain read-only checks.
+      - name: Create vulnerability badge data
+        if: github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'dev')
+        env:
+          BADGE_BRANCH: ${{ github.ref_name }}
+        run: |
+          cves <- vulnr::check(
+            lib = NULL,
+            renv_file = NULL,
+            dcf = "DESCRIPTION",
+            dependencies = TRUE,
+            return_cves = TRUE
+          )
+          count <- if (is.null(cves)) 0L else nrow(cves)
+          colour <- if (count == 0L) "brightgreen" else "red"
+          badge <- list(
+            schemaVersion = 1,
+            label = paste("vulnerabilities", Sys.getenv("BADGE_BRANCH")),
+            message = as.character(count),
+            color = colour
+          )
+          dir.create("badges", showWarnings = FALSE)
+          jsonlite::write_json(
+            badge,
+            path = file.path("badges", paste0("vulnerabilities-", Sys.getenv("BADGE_BRANCH"), ".json")),
+            auto_unbox = TRUE,
+            pretty = TRUE
+          )
+        shell: Rscript {0}
+
+      - name: Commit vulnerability badge data
+        if: github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'dev')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "badges/vulnerabilities-${GITHUB_REF_NAME}.json"
+          git diff --cached --quiet || git commit -m "Update ${GITHUB_REF_NAME} vulnerability badge [skip ci]"
+          git push
+
+      - name: Fail when vulnerabilities are found
+        if: steps.check_vulnerabilities.outcome == 'failure'
+        run: exit 1
