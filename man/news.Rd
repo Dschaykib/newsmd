@@ -23,156 +23,170 @@ my_news$add_bullet("point 2")
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-news-new}{\code{news$new()}}
-\item \href{#method-news-print}{\code{news$print()}}
-\item \href{#method-news-get_text}{\code{news$get_text()}}
-\item \href{#method-news-write}{\code{news$write()}}
-\item \href{#method-news-add_version}{\code{news$add_version()}}
-\item \href{#method-news-add_subtitle}{\code{news$add_subtitle()}}
-\item \href{#method-news-add_bullet}{\code{news$add_bullet()}}
-\item \href{#method-news-clone}{\code{news$clone()}}
-}
+  \itemize{
+    \item \href{#method-news-initialize}{\code{news$new()}}
+    \item \href{#method-news-print}{\code{news$print()}}
+    \item \href{#method-news-get_text}{\code{news$get_text()}}
+    \item \href{#method-news-write}{\code{news$write()}}
+    \item \href{#method-news-add_version}{\code{news$add_version()}}
+    \item \href{#method-news-add_subtitle}{\code{news$add_subtitle()}}
+    \item \href{#method-news-add_bullet}{\code{news$add_bullet()}}
+    \item \href{#method-news-clone}{\code{news$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-news-new"></a>}}
-\if{latex}{\out{\hypertarget{method-news-new}{}}}
-\subsection{Method \code{new()}}{
-Create a new news object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$new(
+\if{html}{\out{<a id="method-news-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-news-initialize}{}}}
+\subsection{\code{news$new()}}{
+  Create a new news object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$new(
   text = c(paste0("## version ", version), "", "---", "", "### NEWS.md setup", "",
-    "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)", ""),
+    paste0("- added NEWS.md creation with ",
+    "[newsmd](https://github.com/Dschaykib/newsmd)"), ""),
   version = "0.0.0.9000",
   file = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{text}}{vector with context for the news.md file.}
-
-\item{\code{version}}{current version of the package.}
-
-\item{\code{file}}{a text file with the current news.md file.
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{text}}{vector with context for the news.md file.}
+      \item{\code{version}}{current version of the package.}
+      \item{\code{file}}{a text file with the current news.md file.
 Use NULL to create new file.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A new `news` object.
+  }
 }
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A new `news` object.
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-print"></a>}}
 \if{latex}{\out{\hypertarget{method-news-print}{}}}
-\subsection{Method \code{print()}}{
-Print a news object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$print()}\if{html}{\out{</div>}}
+\subsection{\code{news$print()}}{
+  Print a news object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$print()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-get_text"></a>}}
 \if{latex}{\out{\hypertarget{method-news-get_text}{}}}
-\subsection{Method \code{get_text()}}{
-Get the news object as a text.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$get_text()}\if{html}{\out{</div>}}
+\subsection{\code{news$get_text()}}{
+  Get the news object as a text.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$get_text()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The context of the news file.
+  }
 }
 
-\subsection{Returns}{
-The context of the news file.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-write"></a>}}
 \if{latex}{\out{\hypertarget{method-news-write}{}}}
-\subsection{Method \code{write()}}{
-Write and save a news object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$write(file = "NEWS.md", reduce_dev = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{file}}{A path and file to where the news file is saved.}
-
-\item{\code{reduce_dev}}{A boolean, if TRUE dev version's points are combined
+\subsection{\code{news$write()}}{
+  Write and save a news object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$write(file = "NEWS.md", reduce_dev = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{file}}{A path and file to where the news file is saved.}
+      \item{\code{reduce_dev}}{A boolean, if TRUE dev version's points are combined
 into the next version}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-add_version"></a>}}
 \if{latex}{\out{\hypertarget{method-news-add_version}{}}}
-\subsection{Method \code{add_version()}}{
-Adds a version line to a news object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$add_version(x)}\if{html}{\out{</div>}}
+\subsection{\code{news$add_version()}}{
+  Adds a version line to a news object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$add_version(x)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{x}}{A string with the version number.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{x}}{A string with the version number.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-add_subtitle"></a>}}
 \if{latex}{\out{\hypertarget{method-news-add_subtitle}{}}}
-\subsection{Method \code{add_subtitle()}}{
-Adds a subtitle line to a news object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$add_subtitle(x)}\if{html}{\out{</div>}}
+\subsection{\code{news$add_subtitle()}}{
+  Adds a subtitle line to a news object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$add_subtitle(x)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{x}}{A string with the subtitle.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{x}}{A string with the subtitle.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-add_bullet"></a>}}
 \if{latex}{\out{\hypertarget{method-news-add_bullet}{}}}
-\subsection{Method \code{add_bullet()}}{
-Adds a bullet points to the last subtitle.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$add_bullet(x)}\if{html}{\out{</div>}}
+\subsection{\code{news$add_bullet()}}{
+  Adds a bullet points to the last subtitle.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$add_bullet(x)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{x}}{A vector with the bullet points.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{x}}{A vector with the bullet points.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-news-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-news-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{news$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{news$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{news$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

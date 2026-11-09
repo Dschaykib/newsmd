@@ -1,3 +1,15 @@
+## version 0.5.3
+
+---
+
+- remove oyster and change to vulnr
+
+## version 0.5.2
+
+---
+
+- add vulnerabilities scans with oyster
+
 ## version 0.5.1
 
 ---

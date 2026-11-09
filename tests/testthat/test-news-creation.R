@@ -8,7 +8,8 @@ testthat::test_that("given file is checked", {
   this_warning <- paste0(
     "No version found in file - ",
     "consider given an initial version. ",
-    "It is set to 0.0.0.9000 for now.")
+    "It is set to 0.0.0.9000 for now."
+  )
 
   testthat::expect_warning(news$new(file = tmp_file), this_warning)
 
@@ -17,17 +18,20 @@ testthat::test_that("given file is checked", {
              con = tmp_file)
   new_news <- news$new(file = tmp_file)
 
-  res <- c("## version 1.0.0.9000",
-           "",
-           "---",
-           "",
-           "### NEWS.md setup",
-           "",
-           "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
-           "",
-           "old NEWS.md",
-           "# version 1.0",
-           "- some stuff")
+  res <- c(
+    "## version 1.0.0.9000",
+    "",
+    "---",
+    "",
+    "### NEWS.md setup",
+    "",
+    paste0("- added NEWS.md creation with ",
+           "[newsmd](https://github.com/Dschaykib/newsmd)"),
+    "",
+    "old NEWS.md",
+    "# version 1.0",
+    "- some stuff"
+  )
 
   testthat::expect_equal(new_news$get_text(), res)
 
@@ -37,17 +41,19 @@ testthat::test_that("given file is checked", {
              con = tmp_file)
   new_news <- news$new(file = tmp_file, version = "2.0")
 
-  res <- c("## version 2.0",
-           "",
-           "---",
-           "",
-           "### NEWS.md setup",
-           "",
-           "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
-           "",
-           "old NEWS.md",
-           "# version 1.0",
-           "- some stuff")
+  res <- c(
+    "## version 2.0",
+    "",
+    "---",
+    "",
+    "### NEWS.md setup",
+    "",
+    paste0("- added NEWS.md creation with ",
+           "[newsmd](https://github.com/Dschaykib/newsmd)"),
+    "",
+    "old NEWS.md",
+    "# version 1.0",
+    "- some stuff")
 
   testthat::expect_equal(new_news$get_text(), res)
 
@@ -60,17 +66,20 @@ testthat::test_that("given file is checked", {
 
   new_news <- news$new(file = tmp_file)
 
-  res <- c("## version 1.0.0.9001",
-           "",
-           "---",
-           "",
-           "### NEWS.md setup",
-           "",
-           "- added NEWS.md creation with [newsmd](https://github.com/Dschaykib/newsmd)",
-           "",
-           "old NEWS.md",
-           "# version 1.0.0.9000",
-           "- some stuff")
+  res <- c(
+    "## version 1.0.0.9001",
+    "",
+    "---",
+    "",
+    "### NEWS.md setup",
+    "",
+    paste0("- added NEWS.md creation with ",
+           "[newsmd](https://github.com/Dschaykib/newsmd)"),
+    "",
+    "old NEWS.md",
+    "# version 1.0.0.9000",
+    "- some stuff"
+  )
 
   testthat::expect_equal(new_news$get_text(), res)
 
@@ -79,6 +88,6 @@ testthat::test_that("given file is checked", {
 
   # file does not exist
   testthat::expect_error(news$new(file = "this/does/not/exists.md"),
-               "given file does not exists")
+                         "given file does not exists")
 
 })

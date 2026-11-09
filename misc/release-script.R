@@ -56,6 +56,14 @@ inteRgrate::check_gitignore()
 
 
 # Check package dependencies
+aa <- tools::package_dependencies(
+  packages = "newsmd",
+  db = available.packages(),
+  which = c("Depends", "Imports", "LinkingTo", "Suggests"),
+  reverse = TRUE
+)
+aa
+
 revdepcheck::revdep_check()
 # reset and remove revdep files
 revdepcheck::revdep_reset()

@@ -10,7 +10,7 @@ testthat::test_that("version punctuation level", {
     "1.2.3", "1.2.3",
     "1.2.3.4", "1.2.3.4",
     "1.2.3.4.5", "1.2.3.4.5",
-    # different seperators
+    # different separators
     "1-2-3", "1.2.3",
     "1-2.3", "1.2.3",
     "1-2:3", "1.2.3",
@@ -18,9 +18,9 @@ testthat::test_that("version punctuation level", {
     # with date
     "1.2.3.4.5 2021.12.31", "1.2.3.4.5"
     # not working cases
-    #"2021.12.31 1.2.3.4.5 ", "1.2.3.4"
-    #"1_2_3", "1.2.3",
-    #"1/2/3", "1.2.3",
+    # "2021.12.31 1.2.3.4.5 ", "1.2.3.4"
+    # "1_2_3", "1.2.3",
+    # "1/2/3", "1.2.3"
   )))
   names(testversions) <- c("version_check", "version_res")
 
@@ -34,6 +34,7 @@ testthat::test_that("version punctuation level", {
                         paste0("# version ", i_version),
                         "- some stuff"),
                con = tmp_file)
+
 
     this_version <- get_version(file = tmp_file, latest = TRUE)
     res <- as.character(testversions$version_res[i_row])
