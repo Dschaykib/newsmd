@@ -193,6 +193,14 @@ if (!requireNamespace("newsmd", quietly = TRUE)) {
   my_desc$del_dep("oysteR")
   my_desc$set_dep("vulnr", type = desc::dep_types[3], version = "*")
 
+  # fix vulnerabilities  ----------------------------------------------------
+
+  my_desc$bump_version("patch")
+  my_news$add_version(my_desc$get_version())
+  my_news$add_bullet(c("fix CVE-2023-33460 by increasing jsonlite sub dependency"))
+
+  my_desc$set_dep("jsonlite", type = desc::dep_types[3], version = ">= 1.8.8")
+
 
   # WIP ---------------------------------------------------------------------
 
@@ -240,7 +248,7 @@ vulnr::check(
 # rebuild package parts ---------------------------------------------------
 
 
-origin::originize_pkg(exclude_files = misc_files)
+origin::originize_pkg()
 
 # check linting
 lintr::lint_package()

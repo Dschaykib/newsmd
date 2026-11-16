@@ -1,7 +1,7 @@
 Package: newsmd
 Title: Creation of NEWS.md File
-Version: 0.5.3
-Date: 2026-11-09
+Version: 0.5.4
+Date: 2026-11-16
 Authors@R: 
     person("Jakob", "Gepp", , "jakob.gepp@yahoo.de", role = c("cre", "aut"))
 Description: Adding updates (version or bullet points) to the NEWS.md
@@ -15,6 +15,7 @@ Imports:
     R6
 Suggests: 
     desc,
+    jsonlite (>= 1.8.8),
     knitr,
     lintr,
     rmarkdown,

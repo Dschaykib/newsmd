@@ -48,12 +48,15 @@ testthat::test_that("given file is checked", {
     "",
     "### NEWS.md setup",
     "",
-    paste0("- added NEWS.md creation with ",
-           "[newsmd](https://github.com/Dschaykib/newsmd)"),
+    paste0(
+      "- added NEWS.md creation with ",
+      "[newsmd](https://github.com/Dschaykib/newsmd)"
+    ),
     "",
     "old NEWS.md",
     "# version 1.0",
-    "- some stuff")
+    "- some stuff"
+  )
 
   testthat::expect_equal(new_news$get_text(), res)
 

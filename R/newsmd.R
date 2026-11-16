@@ -30,8 +30,10 @@ newsmd <- function(
       "### NEWS.md setup", "",
       paste0("- added NEWS.md creation with ",
              "[newsmd](https://github.com/Dschaykib/newsmd)"),
-      ""),
-    version = "0.0.0.9000") {
+      ""
+    ),
+    version = "0.0.0.9000"
+) {
   news$new(file = file, text = text, version = version)
 }
 
