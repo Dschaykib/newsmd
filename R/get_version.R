@@ -30,8 +30,11 @@ get_version <- function(file, latest = TRUE) {
   # extract version
   # remove numbers which are between letters and no version,
   # but part of a word / name
-  version_nonum <- gsub("(.*)([[:alpha:]])([[:digit:]]+)([[:alpha:]])(.*)",
-                          replacement = "\\1\\2\\4\\5", x = headlines_inital)
+  version_nonum <- gsub(
+    "(.*)([[:alpha:]])([[:digit:]]+)([[:alpha:]])(.*)",
+    replacement = "\\1\\2\\4\\5",
+    x = headlines_inital
+  )
   # remove all letter, since version are only number separated by a punctuation
   version_noletters <- gsub("[#[:alpha:]]", "", version_nonum)
   # replace punctuation . / - between numbers with "x" for the next step

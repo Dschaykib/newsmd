@@ -1,3 +1,9 @@
+## version 0.5.4
+
+---
+
+- fix CVE-2023-33460 by increasing jsonlite sub dependency
+
 ## version 0.5.3
 
 ---

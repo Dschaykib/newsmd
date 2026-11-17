@@ -9,7 +9,8 @@ testthat::test_that("get build", {
     "", "### NEWS.md setup", "",
     paste0("- added NEWS.md creation with ",
            "[newsmd](https://github.com/Dschaykib/newsmd)"),
-    "")
+    ""
+  )
 
   testthat::expect_identical(class(news_1), c("news", "R6"))
   testthat::expect_identical(res, news_1$get_text())
